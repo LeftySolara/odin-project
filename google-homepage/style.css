@@ -2,6 +2,36 @@ form {
     margin-top: 10px;
 }
 
+#navbar {
+    list-style-type: none;
+    margin: 21px 0px 10px 0px;
+    padding: 0;
+    overflow: hidden;
+    font-family: arial, sans-serif;
+    font-size: 13px;
+}
+
+#navbar li {
+    float: left;
+}
+
+#navbar li a {
+    display: inline;
+    color: rgb(34, 34, 34);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navbar li a:hover {
+    text-decoration: underline;
+}
+
+#right-nav {
+    float: right;
+}
+
+
 #main-content {
     display: flex;
     flex-direction: column;
