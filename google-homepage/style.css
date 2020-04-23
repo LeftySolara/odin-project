@@ -43,6 +43,16 @@ nav {
     margin: 5px 10px 0px 12px;
 }
 
+.form-button {
+    color: #5F6368;
+    background-color: #f1f1f1;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    padding: 0 16px;
+    margin: 24px 5px;
+    height: 36px;
+}
+
 #sign-in {
     border: 1px solid #4285f4;
     border-radius: 2px;
@@ -99,21 +109,9 @@ nav {
 }
 
 #footer .left {
-    /* margin: 0px 0px 10px 10px; */
     font-size: 14px;
 }
 
 #footer .right {
-    /* margin: 0px 10px 10px 0px; */
     font-size: 14px;
-}
-
-.form-button {
-    color: #5F6368;
-    background-color: #f1f1f1;
-    border: 1px solid #f1f1f1;
-    border-radius: 4px;
-    padding: 0 16px;
-    margin: 24px 5px;
-    height: 36px;
 }
