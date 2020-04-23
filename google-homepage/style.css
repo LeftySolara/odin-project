@@ -47,25 +47,6 @@ nav {
     height: 28px;
 }
 
-/*
-.header li {
-    float: left;
-}
-
-.header li a {
-    display: inline;
-    color: rgb(34, 34, 34);
-    text-align: center;
-    vertical-align: middle;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.header li a:hover {
-    text-decoration: underline;
-}
-*/
-
 #main-content {
     display: flex;
     flex-direction: column;
