@@ -10,6 +10,7 @@ a {
 
 form {
     margin-top: 10px;
+    width: 35%;
 }
 
 ul {
@@ -42,8 +43,6 @@ nav {
     margin: 5px 10px 0px 12px;
 }
 
-
-
 #sign-in {
     border: 1px solid #4285f4;
     border-radius: 2px;
@@ -62,7 +61,17 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+    margin-top: 5%;
+}
+
+#main-content img {
+    margin-bottom: 15px;
+}
+
+#searchbar {
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 #footer {
@@ -89,6 +98,6 @@ nav {
     border: 1px solid #f1f1f1;
     border-radius: 4px;
     padding: 0 16px;
-    margin: 11px 4px;
+    margin: 24px 5px;
     height: 36px;
 }
