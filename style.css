@@ -1,0 +1,19 @@
+body {
+    color: #556666;
+    background-color: #ffffff;
+}
+
+header {
+    margin: 100px auto;
+}
+  
+h1 {
+    display: block;
+    color: #333;
+    font-family: "Clear Sans", sans-serif;
+}
+
+a {
+    color: #5d908e;
+    text-decoration: none;
+}
