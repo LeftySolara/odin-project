@@ -4,6 +4,10 @@ function createGrid() {
         let square = document.createElement("div");
         square.classList.add("square");
 
+        square.addEventListener("mouseenter", function (event) {
+            this.style.backgroundColor = "gray";
+        })
+
         let content = document.createElement("div");
         content.classList.add("content");
         square.appendChild(content);
