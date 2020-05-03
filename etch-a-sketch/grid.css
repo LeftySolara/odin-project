@@ -2,12 +2,17 @@ body {
     position: absolute;
     height: 100%;
     width: 100%;
+    background-color: #f2f0ec;
 }
 
 button {
     margin-top: 30px;
     margin-left: 30px;
-    font-size: 2em;
+    font-size: 3em;
+    color: #515151;
+    background-color: #c9c0af;
+    border: 1px solid #c9c0af;
+    border-radius: 7%;
 }
 
 #content {
@@ -30,7 +35,7 @@ button {
     position: relative;
     flex-basis: calc(6.25%);
     margin: 0px;
-    border: 1px solid gray;
+    border: 1px solid #747369;
     box-sizing: border-box;
 }
 
