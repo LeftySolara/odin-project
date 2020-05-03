@@ -18,6 +18,7 @@ body {
 button {
     margin: 10px 30px 10px 0px;
     margin-left: 30px;
+    font-family: "Roboto", sans-serif;
     font-size: 2em;
     color: #515151;
     background-color: #c9c0af;
