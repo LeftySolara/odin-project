@@ -6,7 +6,7 @@ body {
 }
 
 button {
-    margin-top: 30px;
+    margin: 30px 30px 30px 0px;
     margin-left: 30px;
     font-size: 3em;
     color: #515151;
