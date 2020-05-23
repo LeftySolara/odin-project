@@ -1,0 +1,38 @@
+body {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #2d2d2d;
+    background-color: #f2f0ec;
+}
+
+header {
+    display: block;
+    line-height: 1em;
+    font-family: sans-serif;
+    font-size: 15px;
+    text-align: center;
+    background-color: #99cc99;
+    border: 1px solid #d3d0c8;
+    margin-bottom: 50px;
+    padding: 0;
+    width: 100%;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    padding: 0px 0px 15px 15px;
+}
+
+a {
+    font-family: sans-serif;
+    font-size: 2em;
+    text-decoration: none;
+    color: #515151;
+}
