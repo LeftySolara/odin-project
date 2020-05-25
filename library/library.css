@@ -1,6 +1,8 @@
 :root {
     --main-bg-color: #dbd6d1;
     --main-fg-color: #5a5047;
+    --accent-bg-color: #6d8257;
+    --form-bg-color: #a39a90;
 }
 
 body {
@@ -40,6 +42,10 @@ a {
     color: var(--main-fg-color);
 }
 
+button {
+    font-family: "Merriweather", sans-serif;
+}
+
 #library {
     display: flex;
     flex-flow: row wrap;
@@ -56,4 +62,74 @@ a {
     border: 4px solid var(--main-bg-color);
     border-radius: 20px;
     padding: 13px;
+}
+
+/* Button used to open the "Add Book" menu */
+.openButton {
+    color: var(--main-bg-color);
+    background-color: var(--accent-bg-color);
+    font-weight: bold;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+/* Popup form for adding book to library */
+.formPopup {
+    display: none;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    border: 3px solid #16130f;
+    z-index: 1;
+    color: #433b32;
+}
+
+.formContainer {
+    max-width: 300px;
+    padding: 10px;
+    background-color: var(--form-bg-color);
+}
+
+.formContainer label {
+    font-size: 18px;
+}
+
+.formContainer input[type=text],
+.formContainer input [type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: var(--main-bg-color);
+    box-sizing: border-box;;
+}
+
+.formContainer input[type=text]:focus,
+.formContainer input[type=password]:focus {
+    background-color: var(--main-bg-color);
+    outline: none;
+}
+
+.formContainer .formButton {
+    background-color: var(--main-bg-color);
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.formContainer .formButton:hover, .openbutton:hover {
+    opacity: 1;
+}
+
+#cancelButton {
+    color: var(--main-bg-color);
+    background-color: #82576d;
 }

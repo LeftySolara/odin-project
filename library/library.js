@@ -1,4 +1,4 @@
-let library = [];
+let library;
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -27,6 +27,9 @@ Book.prototype.createCard = function() {
 }
 
 function addBookToLibrary(book) {
+    if (library === undefined || library === null) {
+        library = [];
+    }
     library.push(book);
 }
 
@@ -34,17 +37,48 @@ function render() {
     let libraryDiv = document.querySelector("#library");
     let card;
 
+    if (library === undefined || library === null) {
+        library = [];
+    }
     library.forEach(book => {
         card = book.createCard();
         libraryDiv.appendChild(card);
     });
 }
 
-// Sample data
-let book = new Book("The Pragmatic Programmer", "David Thomas", 300, "Yes");
-let book2 = new Book("The Saga of Tanya the Evil, Vol. 1: Deus lo Vult", "Carlo Zen", 315, "No");
+function openForm() {
+    document.querySelector("#addBookForm").style.display = "block";
+}
 
-addBookToLibrary(book);
-addBookToLibrary(book2);
+function closeForm() {
+    document.querySelector("#addBookForm").style.display = "none";
+}
 
+function addBookFromForm() {
+    let title = document.querySelector("#title");
+    let author = document.querySelector("#author");
+    let pages = document.querySelector("#pages");
+    let read = document.querySelector("#read");
+
+    let readText;
+    if (read.checked) {
+        readText = "Read: Yes";
+    }
+    else {
+        readText = "Read: No";
+    }
+
+    let book = new Book(title.value, author.value, pages.value, readText);
+    addBookToLibrary(book);
+
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    read.checked = false;
+
+    render();
+}
+
+let addBookForm = document.querySelector("#addBookForm");
+addBookForm.addEventListener("submit", addBookFromForm);
 render();
