@@ -6,3 +6,4 @@ This repository is a collection of my solutions to exercises from [The Odin Proj
 - [Etch-A-Sketch](https://leftysolara.github.io/odin-project/etch-a-sketch/)
 - [Calculator](https://leftysolara.github.io/odin-project/calculator/)
 - [Pomodoro Timer](https://leftysolara.github.io/odin-project/pomodoro)
+- [Tic Tac Toe](https://leftysolara.github.io/odin-project/tic-tac-toe)
