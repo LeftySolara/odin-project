@@ -32,6 +32,23 @@ h1 {
     align-items: center;
 }
 
+#tabBar {
+    width: 100%;
+    height: 15%;
+    text-align: right;
+    padding: 30px 50px 0px 0px;
+}
+
+#tabBar a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.7em;
+    font-style: italic;
+    color: var(--main-fg-color);
+    text-decoration: none;
+    margin-left: 25px;
+}
+
 #description {
     width: 50%;
     padding: 10px;
