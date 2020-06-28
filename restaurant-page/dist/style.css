@@ -5,6 +5,7 @@
 }
 
 body {
+    position: absolute;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -16,20 +17,27 @@ body {
     background-size: cover;
 }
 
-header {
+h1 {
     text-align: center;
     font-family: 'Lobster', cursive;
-    font-size: 2em;
+    font-size: 5em;
     color: var(--main-fg-color);
 }
 
 #content {
-    margin: 0 auto;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#description {
     width: 50%;
     padding: 10px;
     background-color: var(--transparent-background);
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
+    font-size: 1.5em;
     border: 1px solid var(--transparent-background);
     border-radius: 10px;
 }

@@ -1,3 +1,4 @@
 import setup from './homepage';
+import initializeHomepage from './homepage';
 
-setup();
+initializeHomepage();
