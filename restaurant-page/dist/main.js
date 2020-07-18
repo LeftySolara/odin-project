@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/header.js":
+/*!***********************!*\
+  !*** ./src/header.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction initializeHeader() {\n    let header = document.getElementsByTagName(\"header\")[0];\n    let tabs = [\"Home\", \"Menu\", \"About\", \"Contact\"];\n    tabs.forEach((tabName) => {\n        let tab = document.createElement(\"a\");\n        tab.id = tabName.toLowerCase();\n        tab.innerHTML = tabName;\n        tab.href = \"#\";\n        header.appendChild(tab);\n    });\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (initializeHeader);\n\n\n//# sourceURL=webpack:///./src/header.js?");
+
+/***/ }),
+
 /***/ "./src/homepage.js":
 /*!*************************!*\
   !*** ./src/homepage.js ***!
@@ -94,7 +106,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction initializeTabs() {\n    let tabBar = document.createElement(\"div\");\n    tabBar.id = \"tabBar\";\n\n    let tabs = [\"Home\", \"Menu\", \"About\", \"Contact\"];\n    tabs.forEach((tabName) => {\n        let tab = document.createElement(\"a\");\n        tab.id = tabName.toLowerCase();\n        tab.innerHTML = tabName;\n        tab.href = \"#\";\n        tabBar.appendChild(tab);\n    });\n\n    let content = document.querySelector(\"#content\");\n    content.appendChild(tabBar);\n}\n\nfunction initializeHeading() {\n    let headingText = document.createElement(\"h1\");\n    headingText.innerHTML = \"Anna's Breakfast Cafe\";\n\n    let heading = document.createElement(\"div\");\n    heading.appendChild(headingText);\n\n    let content = document.querySelector(\"#content\");\n    content.appendChild(heading);\n}\n\nfunction initializeDescription() {\n    let paragraph1 = document.createElement(\"p\");\n    paragraph1.innerHTML = \"Located in the heart of the arts district, Anna's Cafe is the perfect spot for a relaxing breakfast atmosphere.\"\n\n    let paragraph2 = document.createElement(\"p\");\n    paragraph2.innerHTML = \"Established in 2020, our cafe strives to provide the best traditional, experimental, and fun options for the most important meal of the day!\"\n\n    let descriptionContainer = document.createElement(\"div\");\n    descriptionContainer.id = \"description\";\n    descriptionContainer.appendChild(paragraph1);\n    descriptionContainer.appendChild(paragraph2);\n\n    let content = document.querySelector(\"#content\");\n    content.appendChild(descriptionContainer);\n}\n\nfunction initializeHomepage() {\n    initializeTabs();\n    initializeHeading();\n    initializeDescription();\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (initializeHomepage);\n\n\n//# sourceURL=webpack:///./src/homepage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nfunction initializeHeading() {\n    let headingText = document.createElement(\"h1\");\n    headingText.innerHTML = \"Anna's Breakfast Cafe\";\n\n    let heading = document.createElement(\"div\");\n    heading.appendChild(headingText);\n\n    let content = document.querySelector(\"#content\");\n    content.appendChild(heading);\n}\n\nfunction initializeDescription() {\n    let paragraph1 = document.createElement(\"p\");\n    paragraph1.innerHTML = \"Located in the heart of the arts district, Anna's Cafe is the perfect spot for a relaxing breakfast atmosphere.\"\n\n    let paragraph2 = document.createElement(\"p\");\n    paragraph2.innerHTML = \"Established in 2020, our cafe strives to provide the best traditional, experimental, and fun options for the most important meal of the day!\"\n\n    let descriptionContainer = document.createElement(\"div\");\n    descriptionContainer.id = \"description\";\n    descriptionContainer.appendChild(paragraph1);\n    descriptionContainer.appendChild(paragraph2);\n\n    let content = document.querySelector(\"#content\");\n    content.appendChild(descriptionContainer);\n}\n\nfunction initializeHomepage() {\n    initializeHeading();\n    initializeDescription();\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (initializeHomepage);\n\n\n//# sourceURL=webpack:///./src/homepage.js?");
 
 /***/ }),
 
@@ -106,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction initializeTabs() {\n
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homepage */ \"./src/homepage.js\");\n\n\n\nObject(_homepage__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header */ \"./src/header.js\");\n/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./homepage */ \"./src/homepage.js\");\n\n\n\nObject(_header__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\nObject(_homepage__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
