@@ -86,14 +86,27 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/homepage.js":
+/*!*************************!*\
+  !*** ./src/homepage.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction initHomepage() {\n    let headingText = document.createElement(\"h1\");\n    headingText.innerHTML = \"Anna's Breakfast Cafe\";\n\n    let heading = document.createElement(\"div\");\n    heading.appendChild(headingText);\n\n    let content = document.querySelector(\"#content\");\n    content.appendChild(heading);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (initHomepage);\n\n\n//# sourceURL=webpack:///./src/homepage.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _homepage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homepage.js */ \"./src/homepage.js\");\n\n\nObject(_homepage_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
