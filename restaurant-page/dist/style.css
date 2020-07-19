@@ -24,6 +24,13 @@ h1 {
     color: var(--main-fg-color);
 }
 
+.tabs {
+    clear: both;
+    position: relative;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
 #content {
     display: flex;
     width: 100%;
