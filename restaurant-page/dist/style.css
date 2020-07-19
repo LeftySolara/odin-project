@@ -31,10 +31,63 @@ h1 {
     margin: 0 auto;
 }
 
+.tab {
+    float: left;
+}
+
+.tab label {
+    margin-right: 20px;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    color: var(--main-fg-color);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.5em;
+    font-style: italic;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.tab [type=radio] {
+    display: none;
+}
+
+.tabHeading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0;
+}
+
+.tabContent {
+    position: relative;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity .2s cubic-bezier(.42, 0, .34, 1.01);
+    opacity: 0;
+    background-color: var(--transparent-background);
+    border: 1px solid var(--transparent-background);
+    border-radius: 10px;;
+}
+
+[type=radio]:checked ~ label {
+    border-bottom: 2px solid var(--main-fg-color);
+    color: var(--main-fg-color);
+    z-index: 2;
+}
+
+[type=radio]:checked ~ label ~ .tabContent {
+    z-index: 1;
+    opacity: 1;
+}
+
 #content {
-    display: flex;
-    width: 100%;
-    flex-flow: column nowrap;
-    align-items: center;
-    margin-top: 200px;
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 200px;
+    font-size: 1.6em;
 }

@@ -1,4 +1,4 @@
-import initHomepage from './homepage.js'
+import initHomeTab from './homepage.js'
 
 function initTabBar() {
     let tabBar = document.createElement("div");
@@ -10,4 +10,4 @@ function initTabBar() {
 }
 
 initTabBar();
-initHomepage();
+initHomeTab();
