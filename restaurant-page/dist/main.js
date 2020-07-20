@@ -86,6 +86,30 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/about.js":
+/*!**********************!*\
+  !*** ./src/about.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction initAboutTab() {\n    let tabButton = document.createElement(\"input\");\n    tabButton.type = \"radio\";\n    tabButton.name = \"tabGroup\";\n    tabButton.id = \"aboutTab\";\n    tabButton.checked = false;\n\n    let tabLabel = document.createElement(\"label\");\n    tabLabel.setAttribute(\"for\", \"aboutTab\");\n    tabLabel.innerHTML = \"About\";\n\n    let tabBar = document.querySelector(\"#tabBar\");\n    tabBar.appendChild(tabButton);\n    tabBar.appendChild(tabLabel);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (initAboutTab);\n\n\n//# sourceURL=webpack:///./src/about.js?");
+
+/***/ }),
+
+/***/ "./src/contact.js":
+/*!************************!*\
+  !*** ./src/contact.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction initContactTab() {\n    let tabButton = document.createElement(\"input\");\n    tabButton.type = \"radio\";\n    tabButton.name = \"tabGroup\";\n    tabButton.id = \"contactTab\";\n    tabButton.checked = false;\n\n    let tabLabel = document.createElement(\"label\");\n    tabLabel.setAttribute(\"for\", \"contactTab\");\n    tabLabel.innerHTML = \"Contact\";\n\n    let tabBar = document.querySelector(\"#tabBar\");\n    tabBar.appendChild(tabButton);\n    tabBar.appendChild(tabLabel);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (initContactTab);\n\n\n//# sourceURL=webpack:///./src/contact.js?");
+
+/***/ }),
+
 /***/ "./src/homepage.js":
 /*!*************************!*\
   !*** ./src/homepage.js ***!
@@ -106,7 +130,19 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction initHomepage() {\n  
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _homepage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homepage.js */ \"./src/homepage.js\");\n\n\nfunction initTabBar() {\n    let tabBar = document.createElement(\"div\");\n    tabBar.id = \"tabBar\";\n    tabBar.classList = [\"tabs\"];\n\n    let pageContent = document.querySelector(\"#content\");\n    pageContent.appendChild(tabBar);\n}\n\ninitTabBar();\nObject(_homepage_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _homepage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homepage.js */ \"./src/homepage.js\");\n/* harmony import */ var _contact_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contact.js */ \"./src/contact.js\");\n/* harmony import */ var _menu_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu.js */ \"./src/menu.js\");\n/* harmony import */ var _about_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./about.js */ \"./src/about.js\");\n\n\n\n\n\nfunction initTabBar() {\n    let tabBar = document.createElement(\"div\");\n    tabBar.id = \"tabBar\";\n    tabBar.classList = [\"tabs\"];\n\n    let pageContent = document.querySelector(\"#content\");\n    pageContent.appendChild(tabBar);\n\n    Object(_homepage_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n    Object(_menu_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n    Object(_contact_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n    Object(_about_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n}\n\ninitTabBar();\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction initMenuTab() {\n    let tabButton = document.createElement(\"input\");\n    tabButton.type = \"radio\";\n    tabButton.name = \"tabGroup\";\n    tabButton.id = \"menuTab\";\n    tabButton.checked = false;\n\n    let tabLabel = document.createElement(\"label\");\n    tabLabel.setAttribute(\"for\", \"menuTab\");\n    tabLabel.innerHTML = \"Menu\";\n\n    let tabBar = document.querySelector(\"#tabBar\");\n    tabBar.appendChild(tabButton);\n    tabBar.appendChild(tabLabel);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (initMenuTab);\n\n\n//# sourceURL=webpack:///./src/menu.js?");
 
 /***/ })
 
