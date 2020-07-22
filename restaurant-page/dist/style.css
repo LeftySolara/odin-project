@@ -25,6 +25,7 @@ h1 {
 }
 
 .tabs {
+    float: left;
     clear: both;
     position: relative;
     max-width: 650px;
@@ -49,18 +50,6 @@ h1 {
     display: none;
 }
 
-.tabs {
-    float: left;
-}
-
-.tabHeading {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 1.5em;
-    padding: 0;
-    margin: 0;
-}
-
 .tabContent {
     position: relative;
     top: 40px;
@@ -72,17 +61,6 @@ h1 {
     background-color: var(--transparent-background);
     border: 1px solid var(--transparent-background);
     border-radius: 10px;;
-}
-
-[type=radio]:checked ~ label {
-    border-bottom: 2px solid var(--main-fg-color);
-    color: var(--main-fg-color);
-    z-index: 2;
-}
-
-[type=radio]:checked ~ label ~ .tabContent {
-    z-index: 1;
-    opacity: 1;
 }
 
 #content {
