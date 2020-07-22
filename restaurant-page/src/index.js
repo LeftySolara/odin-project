@@ -1,8 +1,3 @@
-import initHomeTab from './homepage.js'
-import initContactTab from './contact.js'
-import initMenuTab from './menu.js'
-import initAboutTab from './about.js'
-
 function initTabBar() {
     let tabBar = document.createElement("div");
     tabBar.id = "tabBar";
