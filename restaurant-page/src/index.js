@@ -3,6 +3,13 @@ import populateMenuTab from './menuTab';
 import populateAboutTab from './aboutTab';
 import populateContactTab from './contactTab';
 
+function clearTabContent() {
+    const tabContent = document.getElementById("tabContent");
+    while (tabContent.firstChild) {
+        tabContent.removeChild(tabContent.lastChild);
+    }
+}
+
 function initTabBar() {
     let tabBar = document.createElement("div");
     tabBar.id = "tabBar";
@@ -20,7 +27,11 @@ function initTabBar() {
         tabButton.setAttribute("type", "radio");
         tabButton.name = "mainNav";
         tabButton.value = tab.name;
-        tabButton.addEventListener("change", tab.populatefunction);
+
+        tabButton.addEventListener("change", function() {
+            clearTabContent();
+            tab.populatefunction();
+        });
 
         let tabLabel = document.createElement("label");
         tabLabel.setAttribute("for", tab.name.toLowerCase());
