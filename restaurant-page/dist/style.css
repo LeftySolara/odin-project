@@ -23,3 +23,28 @@ h1 {
     font-size: 5em;
     color: var(--main-fg-color);
 }
+
+#tabBar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+#tabBar label {
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--main-fg-color);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.5em;
+    font-style: italic;
+    text-decoration: none;
+}
+
+#tabBar input[type="radio"]:checked + label {
+    border-bottom: 2px solid var(--main-fg-color);
+}
+
+#tabBar label:hover {
+    color: #8E8BB8;
+}

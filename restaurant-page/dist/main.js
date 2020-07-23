@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("function initTabBar() {\n    let tabBar = document.createElement(\"div\");\n    tabBar.id = \"tabBar\";\n    tabBar.classList = [\"tabs\"];\n\n    let pageContent = document.querySelector(\"#content\");\n    pageContent.appendChild(tabBar);\n\n    initHomeTab();\n    initMenuTab();\n    initContactTab();\n    initAboutTab();\n}\n\ninitTabBar();\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("function initTabBar() {\n    let tabBar = document.createElement(\"div\");\n    tabBar.id = \"tabBar\";\n\n    let tabNames = [\"Home\", \"Menu\", \"About\", \"Contact\"];\n    for (name of tabNames) {\n        let tabButton = document.createElement(\"input\");\n        tabButton.id = name.toLowerCase();\n        tabButton.setAttribute(\"type\", \"radio\");\n        tabButton.name = \"mainNav\";\n        tabButton.value = name;\n\n        let tabLabel = document.createElement(\"label\");\n        tabLabel.setAttribute(\"for\", name.toLowerCase());\n        tabLabel.innerHTML = name;\n\n        if (name === \"Home\") {\n            tabButton.checked = true;\n        }\n\n        tabBar.appendChild(tabButton);\n        tabBar.appendChild(tabLabel);\n    }\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(tabBar);\n}\n\ninitTabBar();\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
