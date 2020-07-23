@@ -1,28 +1,38 @@
 import populateHomeTab from './homeTab';
+import populateMenuTab from './menuTab';
+import populateAboutTab from './aboutTab';
+import populateContactTab from './contactTab';
 
 function initTabBar() {
     let tabBar = document.createElement("div");
     tabBar.id = "tabBar";
 
-    let tabNames = ["Home", "Menu", "About", "Contact"];
-    for (name of tabNames) {
+    let tabs = [
+        {name: "Home", populatefunction: populateHomeTab},
+        {name: "Menu", populatefunction: populateMenuTab},
+        {name: "About", populatefunction: populateAboutTab},
+        {name: "Contact", populatefunction: populateContactTab}
+    ];
+
+    tabs.forEach((tab) => {
         let tabButton = document.createElement("input");
-        tabButton.id = name.toLowerCase();
+        tabButton.id = tab.name.toLowerCase();
         tabButton.setAttribute("type", "radio");
         tabButton.name = "mainNav";
-        tabButton.value = name;
+        tabButton.value = tab.name;
+        tabButton.addEventListener("change", tab.populatefunction);
 
         let tabLabel = document.createElement("label");
-        tabLabel.setAttribute("for", name.toLowerCase());
-        tabLabel.innerHTML = name;
+        tabLabel.setAttribute("for", tab.name.toLowerCase());
+        tabLabel.innerHTML = tab.name;
 
-        if (name === "Home") {
+        if (tab.name === "Home") {
             tabButton.checked = true;
         }
 
         tabBar.appendChild(tabButton);
         tabBar.appendChild(tabLabel);
-    }
+    });
 
     let mainContent = document.querySelector("#content");
     mainContent.appendChild(tabBar);

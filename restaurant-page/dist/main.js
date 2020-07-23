@@ -86,6 +86,30 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/aboutTab.js":
+/*!*************************!*\
+  !*** ./src/aboutTab.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction populateAboutTab() {\n    let tabContent = document.createElement(\"p\");\n    tabContent.innerHTML = \"About Page Placeholder\";\n\n    let tabContentContainer = document.querySelector(\"#tabContent\");\n    tabContentContainer.appendChild(tabContent);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (populateAboutTab);\n\n\n\n//# sourceURL=webpack:///./src/aboutTab.js?");
+
+/***/ }),
+
+/***/ "./src/contactTab.js":
+/*!***************************!*\
+  !*** ./src/contactTab.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction populateContactTab() {\n    let tabContent = document.createElement(\"p\");\n    tabContent.innerHTML = \"Contact Page Placeholder\";\n\n    let tabContentContainer = document.querySelector(\"#tabContent\");\n    tabContentContainer.appendChild(tabContent);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (populateContactTab);\n\n\n\n//# sourceURL=webpack:///./src/contactTab.js?");
+
+/***/ }),
+
 /***/ "./src/homeTab.js":
 /*!************************!*\
   !*** ./src/homeTab.js ***!
@@ -106,7 +130,19 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction populateHomeTab() {\
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _homeTab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homeTab */ \"./src/homeTab.js\");\n\n\nfunction initTabBar() {\n    let tabBar = document.createElement(\"div\");\n    tabBar.id = \"tabBar\";\n\n    let tabNames = [\"Home\", \"Menu\", \"About\", \"Contact\"];\n    for (name of tabNames) {\n        let tabButton = document.createElement(\"input\");\n        tabButton.id = name.toLowerCase();\n        tabButton.setAttribute(\"type\", \"radio\");\n        tabButton.name = \"mainNav\";\n        tabButton.value = name;\n\n        let tabLabel = document.createElement(\"label\");\n        tabLabel.setAttribute(\"for\", name.toLowerCase());\n        tabLabel.innerHTML = name;\n\n        if (name === \"Home\") {\n            tabButton.checked = true;\n        }\n\n        tabBar.appendChild(tabButton);\n        tabBar.appendChild(tabLabel);\n    }\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(tabBar);\n}\n\nfunction initTabContent() {\n    let tabContent = document.createElement(\"div\");\n    tabContent.id = \"tabContent\";\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(tabContent);\n\n    Object(_homeTab__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n}\n\nfunction initHomepage() {\n    let header = document.createElement(\"h1\");\n    header.innerHTML = \"Anna's Breakfast Cafe\";\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(header);\n\n    initTabBar();\n    initTabContent();\n}\n\ninitHomepage();\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _homeTab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homeTab */ \"./src/homeTab.js\");\n/* harmony import */ var _menuTab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menuTab */ \"./src/menuTab.js\");\n/* harmony import */ var _aboutTab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./aboutTab */ \"./src/aboutTab.js\");\n/* harmony import */ var _contactTab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contactTab */ \"./src/contactTab.js\");\n\n\n\n\n\nfunction initTabBar() {\n    let tabBar = document.createElement(\"div\");\n    tabBar.id = \"tabBar\";\n\n    let tabs = [\n        {name: \"Home\", populatefunction: _homeTab__WEBPACK_IMPORTED_MODULE_0__[\"default\"]},\n        {name: \"Menu\", populatefunction: _menuTab__WEBPACK_IMPORTED_MODULE_1__[\"default\"]},\n        {name: \"About\", populatefunction: _aboutTab__WEBPACK_IMPORTED_MODULE_2__[\"default\"]},\n        {name: \"Contact\", populatefunction: _contactTab__WEBPACK_IMPORTED_MODULE_3__[\"default\"]}\n    ];\n\n    tabs.forEach((tab) => {\n        let tabButton = document.createElement(\"input\");\n        tabButton.id = tab.name.toLowerCase();\n        tabButton.setAttribute(\"type\", \"radio\");\n        tabButton.name = \"mainNav\";\n        tabButton.value = tab.name;\n        tabButton.addEventListener(\"change\", tab.populatefunction);\n\n        let tabLabel = document.createElement(\"label\");\n        tabLabel.setAttribute(\"for\", tab.name.toLowerCase());\n        tabLabel.innerHTML = tab.name;\n\n        if (tab.name === \"Home\") {\n            tabButton.checked = true;\n        }\n\n        tabBar.appendChild(tabButton);\n        tabBar.appendChild(tabLabel);\n    });\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(tabBar);\n}\n\nfunction initTabContent() {\n    let tabContent = document.createElement(\"div\");\n    tabContent.id = \"tabContent\";\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(tabContent);\n\n    Object(_homeTab__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n}\n\nfunction initHomepage() {\n    let header = document.createElement(\"h1\");\n    header.innerHTML = \"Anna's Breakfast Cafe\";\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(header);\n\n    initTabBar();\n    initTabContent();\n}\n\ninitHomepage();\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/menuTab.js":
+/*!************************!*\
+  !*** ./src/menuTab.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction populateMenuTab() {\n    let tabContent = document.createElement(\"p\");\n    tabContent.innerHTML = \"Menu Page Placeholder\";\n\n    let tabContentContainer = document.querySelector(\"#tabContent\");\n    tabContentContainer.appendChild(tabContent);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (populateMenuTab);\n\n\n\n//# sourceURL=webpack:///./src/menuTab.js?");
 
 /***/ })
 
