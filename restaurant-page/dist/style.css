@@ -48,3 +48,8 @@ h1 {
 #tabBar label:hover {
     color: #8E8BB8;
 }
+
+#tabContent {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+}

@@ -1,3 +1,5 @@
+import populateHomeTab from './homeTab';
+
 function initTabBar() {
     let tabBar = document.createElement("div");
     tabBar.id = "tabBar";
@@ -26,4 +28,19 @@ function initTabBar() {
     mainContent.appendChild(tabBar);
 }
 
-initTabBar();
+function initTabContent() {
+    let tabContent = document.createElement("div");
+    tabContent.id = "tabContent";
+
+    let mainContent = document.querySelector("#content");
+    mainContent.appendChild(tabContent);
+
+    populateHomeTab();
+}
+
+function initHomepage() {
+    initTabBar();
+    initTabContent();
+}
+
+initHomepage();

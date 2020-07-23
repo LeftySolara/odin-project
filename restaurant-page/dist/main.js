@@ -86,14 +86,27 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/homeTab.js":
+/*!************************!*\
+  !*** ./src/homeTab.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction populateHomeTab() {\n    let tabContent = document.createElement(\"p\");\n    tabContent.innerHTML = \"Home Page Placeholder\";\n\n    let tabContentContainer = document.querySelector(\"#tabContent\");\n    tabContentContainer.appendChild(tabContent);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (populateHomeTab);\n\n\n//# sourceURL=webpack:///./src/homeTab.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("function initTabBar() {\n    let tabBar = document.createElement(\"div\");\n    tabBar.id = \"tabBar\";\n\n    let tabNames = [\"Home\", \"Menu\", \"About\", \"Contact\"];\n    for (name of tabNames) {\n        let tabButton = document.createElement(\"input\");\n        tabButton.id = name.toLowerCase();\n        tabButton.setAttribute(\"type\", \"radio\");\n        tabButton.name = \"mainNav\";\n        tabButton.value = name;\n\n        let tabLabel = document.createElement(\"label\");\n        tabLabel.setAttribute(\"for\", name.toLowerCase());\n        tabLabel.innerHTML = name;\n\n        if (name === \"Home\") {\n            tabButton.checked = true;\n        }\n\n        tabBar.appendChild(tabButton);\n        tabBar.appendChild(tabLabel);\n    }\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(tabBar);\n}\n\ninitTabBar();\n\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _homeTab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homeTab */ \"./src/homeTab.js\");\n\n\nfunction initTabBar() {\n    let tabBar = document.createElement(\"div\");\n    tabBar.id = \"tabBar\";\n\n    let tabNames = [\"Home\", \"Menu\", \"About\", \"Contact\"];\n    for (name of tabNames) {\n        let tabButton = document.createElement(\"input\");\n        tabButton.id = name.toLowerCase();\n        tabButton.setAttribute(\"type\", \"radio\");\n        tabButton.name = \"mainNav\";\n        tabButton.value = name;\n\n        let tabLabel = document.createElement(\"label\");\n        tabLabel.setAttribute(\"for\", name.toLowerCase());\n        tabLabel.innerHTML = name;\n\n        if (name === \"Home\") {\n            tabButton.checked = true;\n        }\n\n        tabBar.appendChild(tabButton);\n        tabBar.appendChild(tabLabel);\n    }\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(tabBar);\n}\n\nfunction initTabContent() {\n    let tabContent = document.createElement(\"div\");\n    tabContent.id = \"tabContent\";\n\n    let mainContent = document.querySelector(\"#content\");\n    mainContent.appendChild(tabContent);\n\n    Object(_homeTab__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n}\n\nfunction initHomepage() {\n    initTabBar();\n    initTabContent();\n}\n\ninitHomepage();\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
