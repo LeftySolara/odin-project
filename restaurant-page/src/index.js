@@ -39,6 +39,12 @@ function initTabContent() {
 }
 
 function initHomepage() {
+    let header = document.createElement("h1");
+    header.innerHTML = "Anna's Breakfast Cafe";
+
+    let mainContent = document.querySelector("#content");
+    mainContent.appendChild(header);
+
     initTabBar();
     initTabContent();
 }
