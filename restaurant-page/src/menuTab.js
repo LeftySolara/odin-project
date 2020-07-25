@@ -8,7 +8,8 @@ let menuItems = [
     {name: "Blueberry Pancakes", price: 6.79, image: "images/menu/calum-lewis-8Nc_oQsc2qQ-unsplash.jpg"},
     {name: "Blueberry Waffles", price: 6.79, image: "images/menu/cristina-matos-albers-S4dXp25NiLg-unsplash.jpg"},
     {name: "Breakfast Platter", price: 9.79, image: "images/menu/eiliv-sonas-aceron-An6cTgmC8yk-unsplash.jpg"},
-    {name: "Tea", price: 1.99, image: "images/menu/reyhaneh-mehrnejad-AZxyTjkz3-g-unsplash.jpg"}
+    {name: "Tea", price: 1.99, image: "images/menu/reyhaneh-mehrnejad-AZxyTjkz3-g-unsplash.jpg"},
+    {name: "Coffee", price: 1.99, image: "images/menu/emre-gencer-NZMeJsrMC8U-unsplash.jpg"}
 ]
 
 function createMenuItemDisplay(item) {
