@@ -1,6 +1,5 @@
 import populateHomeTab from './homeTab';
 import populateMenuTab from './menuTab';
-import populateAboutTab from './aboutTab';
 import populateContactTab from './contactTab';
 
 function clearTabContent() {
@@ -17,7 +16,6 @@ function initTabBar() {
     let tabs = [
         {name: "Home", populatefunction: populateHomeTab},
         {name: "Menu", populatefunction: populateMenuTab},
-        {name: "About", populatefunction: populateAboutTab},
         {name: "Contact", populatefunction: populateContactTab}
     ];
 
