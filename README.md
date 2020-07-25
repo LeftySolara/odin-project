@@ -7,3 +7,4 @@ This repository is a collection of my solutions to exercises from [The Odin Proj
 - [Calculator](https://leftysolara.github.io/odin-project/calculator/)
 - [Pomodoro Timer](https://leftysolara.github.io/odin-project/pomodoro)
 - [Tic Tac Toe](https://leftysolara.github.io/odin-project/tic-tac-toe)
+- [Restaurant Page](https://leftysolara.github.io/odin-project/restaurant-page/dist/)
