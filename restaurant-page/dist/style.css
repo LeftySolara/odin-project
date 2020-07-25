@@ -5,7 +5,6 @@
 }
 
 body {
-    position: absolute;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -14,7 +13,7 @@ body {
     background-color: var(--main-bg-color);
     background-image: url(images/coffee-801781_1920.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
 }
 
 h1 {
@@ -52,4 +51,29 @@ h1 {
 #tabContent {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8em;
+}
+
+#menuDisplay {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 75%;
+    max-height: 50%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.menuItem {
+    display: block;
+    margin-bottom: 50px;
+    width: 20%;
+    text-align: center;
+    border: 5px solid var(--main-fg-color);
+}
+
+.menuItem img {
+    max-width: 100%;
+    object-fit: fill;
+    vertical-align: top;
 }
