@@ -1,15 +1,20 @@
 function populateContactTab() {
-    let phoneNumber = document.createElement("p");
-    tabContent.innerHTML = "Phone: (123) 456-789";
+    let paragraph1 = document.createElement("p");
+    tabContent.innerHTML = "For questions, concerns, and reservations:";
 
-    let emailAddress = document.createElement("p");
-    emailAddress.innerHTML = "Email: abc@example.com";
+    let address = document.createElement("p");
+    address.innerHTML = "123 Example St., New York, NY";
+
+    let contactInfo = document.createElement("p");
+    contactInfo.innerHTML = "abc@example.com<br/>(123) 456-789";
+
 
     let tabContentContainer = document.querySelector("#tabContent");
-    tabContentContainer.appendChild(phoneNumber);
-    tabContentContainer.appendChild(emailAddress);
+    tabContentContainer.appendChild(paragraph1);
+    tabContentContainer.appendChild(address);
+    tabContentContainer.appendChild(contactInfo);
     tabContentContainer.classList = ["overlay"];
-    tabContentContainer.style.width = "33%";
+    tabContentContainer.style.width = "60%";
 }
 
 export default populateContactTab;

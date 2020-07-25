@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction populateContactTab() {\n    let phoneNumber = document.createElement(\"p\");\n    tabContent.innerHTML = \"Phone: (123) 456-789\";\n\n    let emailAddress = document.createElement(\"p\");\n    emailAddress.innerHTML = \"Email: abc@example.com\";\n\n    let tabContentContainer = document.querySelector(\"#tabContent\");\n    tabContentContainer.appendChild(phoneNumber);\n    tabContentContainer.appendChild(emailAddress);\n    tabContentContainer.classList = [\"overlay\"];\n    tabContentContainer.style.width = \"33%\";\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (populateContactTab);\n\n\n\n//# sourceURL=webpack:///./src/contactTab.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nfunction populateContactTab() {\n    let paragraph1 = document.createElement(\"p\");\n    tabContent.innerHTML = \"For questions, concerns, and reservations:\";\n\n    let address = document.createElement(\"p\");\n    address.innerHTML = \"123 Example St., New York, NY\";\n\n    let contactInfo = document.createElement(\"p\");\n    contactInfo.innerHTML = \"abc@example.com<br/>(123) 456-789\";\n\n\n    let tabContentContainer = document.querySelector(\"#tabContent\");\n    tabContentContainer.appendChild(paragraph1);\n    tabContentContainer.appendChild(address);\n    tabContentContainer.appendChild(contactInfo);\n    tabContentContainer.classList = [\"overlay\"];\n    tabContentContainer.style.width = \"60%\";\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (populateContactTab);\n\n\n\n//# sourceURL=webpack:///./src/contactTab.js?");
 
 /***/ }),
 
