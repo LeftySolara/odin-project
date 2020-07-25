@@ -8,6 +8,8 @@ function populateContactTab() {
     let tabContentContainer = document.querySelector("#tabContent");
     tabContentContainer.appendChild(phoneNumber);
     tabContentContainer.appendChild(emailAddress);
+    tabContentContainer.classList = ["overlay"];
+    tabContentContainer.style.width = "33%";
 }
 
 export default populateContactTab;

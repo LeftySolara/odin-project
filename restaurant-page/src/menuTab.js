@@ -42,7 +42,8 @@ function populateMenuTab() {
 
     let tabContentContainer = document.querySelector("#tabContent");
     tabContentContainer.appendChild(menuDiv);
-
+    tabContentContainer.classList = [];
+    tabContentContainer.style.width = "80%";
 }
 
 export default populateMenuTab;

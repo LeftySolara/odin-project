@@ -8,6 +8,9 @@ function populateHomeTab() {
     let tabContentContainer = document.querySelector("#tabContent");
     tabContentContainer.appendChild(paragraph1);
     tabContentContainer.appendChild(paragraph2);
+    tabContentContainer.classList = ["overlay"];
+    tabContentContainer.style.width = "60%";
+
 }
 
 export default populateHomeTab;

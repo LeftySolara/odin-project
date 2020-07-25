@@ -1,7 +1,8 @@
 :root {
-    --main-fg-color: #f2f0ec;
-    --main-bg-color: #2d2d2d;
-    --transparent-background: rgba(45, 45, 45, 0.65);
+    --main-bg-color: #f2f0ec;
+    --main-fg-color: #2d2d2d;
+    --transparent-background: rgba(45, 45, 45, 0.9);
+    --background-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
 }
 
 body {
@@ -11,9 +12,10 @@ body {
     padding: 0;
     color: var(--main-fg-color);
     background-color: var(--main-bg-color);
-    background-image: url(images/coffee-801781_1920.jpg);
+    background-image: url(images/photo-of-coffee-shop-2530586.jpg);
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
 
 h1 {
@@ -21,6 +23,10 @@ h1 {
     font-family: 'Lobster', cursive;
     font-size: 5em;
     color: var(--main-fg-color);
+}
+
+#tabBar {
+    text-align: center;
 }
 
 #tabBar input[type="radio"] {
@@ -45,12 +51,18 @@ h1 {
 }
 
 #tabBar label:hover {
-    color: #8E8BB8;
+    color: var(--main-bg-color);
 }
 
 #tabContent {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 10px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
+    font-size: 2em;
+    color: var(--main-bg-color);
+    text-align: center;
 }
 
 #menuDisplay {
@@ -58,22 +70,32 @@ h1 {
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: space-evenly;
-    width: 75%;
-    max-height: 50%;
     margin: 0 auto;
+    width: 100%;
     padding-top: 50px;
 }
 
 .menuItem {
     display: block;
     margin-bottom: 50px;
-    width: 20%;
+    width: 26%;
     text-align: center;
-    border: 5px solid var(--main-fg-color);
+    background-color: var(--transparent-background);
+    border: 0px solid var(--transparent-background);
+    border-radius: 10px;
+    box-shadow: var(--background-shadow);
 }
 
 .menuItem img {
     max-width: 100%;
     object-fit: fill;
     vertical-align: top;
+}
+
+.overlay {
+    background-color: var(--transparent-background);
+    border: 0px solid var(--transparent-background);
+    border-radius: 10px;
+    line-height: 38px;
+    box-shadow: var(--background-shadow);
 }
