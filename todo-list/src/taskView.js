@@ -45,6 +45,7 @@
       * 
       * @param {string} tag - The HTML tag of the new element.
       * @param {string} className - An optional class name to assign to the new element.
+      * @returns {element} - The newly created element.
       */
      function createElement(tag, className) {
          const element = document.createElement(tag);
@@ -59,6 +60,7 @@
       * Helper function that retrieves an element from the DOM.
       * 
       * @param {string} selector - The CSS selector used to identify the element.
+      * @returns {element} - The DOM element that matched the provided selector.
       */
      function getElement(selector) {
          const element = document.querySelector(selector);
