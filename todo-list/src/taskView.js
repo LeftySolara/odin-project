@@ -119,7 +119,7 @@
          }
      }
 
-     return { initializeView, createElement, getElement };
+     return { initializeView, createElement, getElement, displayTasks };
  })();
 
  export default TaskView;
