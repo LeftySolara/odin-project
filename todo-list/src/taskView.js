@@ -8,6 +8,39 @@
      "use strict"
 
      /**
+      * Initializes the view for the task list.
+      */
+     function initializeView() {
+         let domRoot = getElement("#root");
+
+         /* Create the page title. */
+         let title = createElement("h1");
+         title.textContent = "Task List";
+
+         /* Create the task creation form. */
+         let form = createElement("form");
+
+         let taskTitleInput = createElement("input");
+         taskTitleInput.type = "text";
+         taskTitleInput.placeholder = "Task title";
+         taskTitleInput.name = "taskTitle";
+
+         let taskDescriptionInput = createElement("input");
+         taskDescriptionInput.type = "text";
+         taskDescriptionInput.placeholder = "Description";
+         taskDescriptionInput.name = "taskDescription";
+
+         let submitButton = createElement("button");
+         submitButton.textContent = "Add Task";
+
+         /* Visual representation of the task list. */
+         let taskList = createElement("ul", "taskList");
+
+         form.append(taskTitleInput, taskDescriptionInput, submitButton);
+         domRoot.append(title, form, taskList);
+     }
+
+     /**
       * Helper function that creates a new element on the DOM.
       * 
       * @param {string} tag - The HTML tag of the new element.
@@ -32,5 +65,7 @@
          return element;
      }
 
-     return { createElement, getElement };
+     return { initializeView, createElement, getElement };
  })();
+
+ export default taskView;
