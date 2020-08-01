@@ -4,7 +4,7 @@
  * View for displaying task items.
  */
 
- let taskView = (function() {
+ let TaskView = (function() {
      "use strict"
 
      /**
@@ -122,4 +122,4 @@
      return { initializeView, createElement, getElement };
  })();
 
- export default taskView;
+ export default TaskView;

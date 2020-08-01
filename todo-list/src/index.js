@@ -1,3 +1,3 @@
-import taskView from "./taskView";
+import TaskView from "./taskView";
 
 taskView.initializeView();
