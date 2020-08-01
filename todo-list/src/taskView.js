@@ -35,6 +35,7 @@
 
          /* Visual representation of the task list. */
          let taskList = createElement("ul", "taskList");
+         taskList.id = "taskList";
 
          form.append(taskTitleInput, taskDescriptionInput, submitButton);
          domRoot.append(title, form, taskList);
@@ -65,6 +66,57 @@
      function getElement(selector) {
          const element = document.querySelector(selector);
          return element;
+     }
+
+     /**
+      * Displays the list of tasks on the page.
+      * 
+      * @param {array} tasks - Array of task objects to display.
+      */
+     function displayTasks(tasks) {
+         let taskList = getElement("#taskList");
+         while (taskList.firstChild) {
+             taskList.removeChild(taskList.lastChild);
+         }
+
+         if (taskList.length === 0) {
+             const msg = createElement("p");
+             msg.textContent = "There are currently no tasks.";
+             taskList.append(msg);
+         }
+         else {
+             tasks.forEach(task => {
+                 const li = createElement("li");
+                 li.id = task.id;
+
+                 /* Checkbox for toggling completion status. */
+                 const checkbox = createElement("input");
+                 checkbox.type = "checkbox";
+                 checkbox.checked = task.complete;
+
+                 /* Task information. */
+                 const span = createElement("span");
+                 span.contentEditable = true;
+                 span.classList.add("editable");
+
+                 /* Strikethrough the task if complete. */
+                 if (task.complete) {
+                     const strike = createElement("s");
+                     strike.textContent = task.title;
+                     span.append(strike);
+                 }
+                 else {
+                     span.textContent = task.title;
+                 }
+
+                 /* Add a delete button to each task. */
+                 const deleteButton = createElement("button", "delete");
+                 deleteButton.textContent = "Delete";
+                 li.append(checkbox, span, deleteButton);
+
+                 taskList.append(li);
+             });
+         }
      }
 
      return { initializeView, createElement, getElement };
