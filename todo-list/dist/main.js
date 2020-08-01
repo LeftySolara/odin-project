@@ -90,35 +90,10 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n/* harmony import */ var _taskDisplay__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./taskDisplay */ \"./src/taskDisplay.js\");\n\n\n\nlet newTaskForm = document.getElementById(\"newTaskForm\");\nnewTaskForm.addEventListener(\"submit\", function(event) {\n    event.preventDefault();\n    Object(_taskDisplay__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n    this.reset();\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/task.js":
-/*!*********************!*\
-  !*** ./src/task.js ***!
-  \*********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst createTask = ({\n    title = \"\",\n    description = \"\"\n} = {}) => ({\n    title,\n    description\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (createTask);\n\n\n//# sourceURL=webpack:///./src/task.js?");
-
-/***/ }),
-
-/***/ "./src/taskDisplay.js":
-/*!****************************!*\
-  !*** ./src/taskDisplay.js ***!
-  \****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/** taskDisplay.js\n * \n * Functions for managing the visual represenction of Task objects.\n */\n\n/* Creates a non-detailed task display. */\nfunction createTaskListing() {\n    let title = document.createElement(\"p\");\n    title.innerHTML = document.getElementById(\"title\").value;\n\n    let description = document.createElement(\"p\");\n    description.innerHTML = document.getElementById(\"description\").value;\n\n    let taskListItem = document.createElement(\"div\");\n    taskListItem.classList = [\"taskListItem\"];\n\n    taskListItem.appendChild(title);\n    taskListItem.appendChild(description);\n\n    let taskList = document.querySelector(\"#taskList\");\n    taskList.appendChild(taskListItem);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (createTaskListing);\n\n\n//# sourceURL=webpack:///./src/taskDisplay.js?");
+eval("\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
