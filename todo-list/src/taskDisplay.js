@@ -4,13 +4,12 @@
  */
 
 /* Creates a non-detailed task display. */
-function createTaskListing(task) {
-
+function createTaskListing() {
     let title = document.createElement("p");
-    title.innerHTML = task.title;
+    title.innerHTML = document.getElementById("title").value;
 
     let description = document.createElement("p");
-    description.innerHTML = task.description;
+    description.innerHTML = document.getElementById("description").value;
 
     let taskListItem = document.createElement("div");
     taskListItem.classList = ["taskListItem"];
