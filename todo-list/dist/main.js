@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n\n\nlet taskNumber = 0;\nlet tasks = [];\n\nlet testButton = document.querySelector(\"#testButton\");\ntestButton.addEventListener(\"click\", function() {\n    tasks.push(Object(_task__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({ title: taskNumber++, description: \"desc\" }));\n    console.log(tasks);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n/* harmony import */ var _taskDisplay__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./taskDisplay */ \"./src/taskDisplay.js\");\n\n\n\nlet taskNumber = 0;\nlet tasks = [];\n\nlet testButton = document.querySelector(\"#testButton\");\ntestButton.addEventListener(\"click\", function() {\n    tasks.push(Object(_task__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({ title: taskNumber, description: \"desc\" }));\n    Object(_taskDisplay__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(tasks[taskNumber++]);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -107,6 +107,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tas
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\nconst createTask = ({\n    title = \"\",\n    description = \"\"\n} = {}) => ({\n    title,\n    description\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (createTask);\n\n\n//# sourceURL=webpack:///./src/task.js?");
+
+/***/ }),
+
+/***/ "./src/taskDisplay.js":
+/*!****************************!*\
+  !*** ./src/taskDisplay.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/** taskDisplay.js\n * \n * Functions for managing the visual represenction of Task objects.\n */\n\n/* Creates a non-detailed task display. */\nfunction createTaskListing(task) {\n\n    let title = document.createElement(\"p\");\n    title.innerHTML = task.title;\n\n    let description = document.createElement(\"p\");\n    description.innerHTML = task.description;\n\n    let taskListItem = document.createElement(\"div\");\n    taskListItem.classList = [\"taskListItem\"];\n\n    taskListItem.appendChild(title);\n    taskListItem.appendChild(description);\n\n    let taskList = document.querySelector(\"#taskList\");\n    taskList.appendChild(taskListItem);\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (createTaskListing);\n\n\n//# sourceURL=webpack:///./src/taskDisplay.js?");
 
 /***/ })
 

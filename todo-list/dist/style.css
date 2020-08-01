@@ -1,0 +1,11 @@
+#taskList {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.taskListItem {
+    background-color: beige;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
