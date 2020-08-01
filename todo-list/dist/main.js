@@ -90,10 +90,23 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("alert(\"Hello World!\");\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ \"./src/task.js\");\n\n\nlet taskNumber = 0;\nlet tasks = [];\n\nlet testButton = document.querySelector(\"#testButton\");\ntestButton.addEventListener(\"click\", function() {\n    tasks.push(Object(_task__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({ title: taskNumber++, description: \"desc\" }));\n    console.log(tasks);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/task.js":
+/*!*********************!*\
+  !*** ./src/task.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst createTask = ({\n    title = \"\",\n    description = \"\"\n} = {}) => ({\n    title,\n    description\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (createTask);\n\n\n//# sourceURL=webpack:///./src/task.js?");
 
 /***/ })
 
