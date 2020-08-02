@@ -8,6 +8,7 @@ let TaskModel = (function() {
     "use strict";
 
     let tasks = [];
+    let _onTaskListChanged = function() {}
 
     /**
      * Adds a new task to the list.
@@ -24,6 +25,7 @@ let TaskModel = (function() {
         };
 
         tasks.push(task);
+        _onTaskListChanged();
     }
 
     /**
@@ -37,6 +39,7 @@ let TaskModel = (function() {
         tasks = tasks.map((task) =>
             task.id === id ? { id: task.id, title: newTitle, description: newDescription } : task,
         )
+        _onTaskListChanged();
     }
 
     /**
@@ -46,6 +49,7 @@ let TaskModel = (function() {
      */
     function deleteTask(id) {
         tasks = tasks.filter((task) => task.id !== id);
+        _onTaskListChanged();
     }
 
     /**
@@ -57,9 +61,21 @@ let TaskModel = (function() {
         tasks = tasks.map((task) =>
             task.id === id ? { id: task.id, title: task.title, description: task.description, complete: !task.complete } : task,
         )
+        _onTaskListChanged();
     }
 
-    return { tasks, addTask, editTask, deleteTask, toggleTask };
+    function bindTaskListChanged(callback) {
+        _onTaskListChanged = callback;
+    }
+
+    return {
+        tasks,
+        addTask,
+        editTask,
+        deleteTask,
+        toggleTask,
+        bindTaskListChanged
+    };
 })();
 
 export default TaskModel;

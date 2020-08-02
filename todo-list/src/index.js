@@ -1,5 +1,7 @@
 import TaskModel from "./taskModel";
 import TaskView from "./taskView";
+import TaskController from "./taskController";
 
 TaskView.initializeView();
-TaskView.displayTasks(TaskModel.tasks);
+
+TaskController.initialize(TaskModel, TaskView);
