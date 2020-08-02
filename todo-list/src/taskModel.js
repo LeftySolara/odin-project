@@ -20,7 +20,7 @@ let TaskModel = (function() {
         const task = {
             title,
             description,
-            id: tasks.length++,
+            id: tasks.length,
             complete: false
         };
 
