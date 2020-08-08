@@ -41,6 +41,13 @@ let TaskModel = (function() {
         _commit(tasks);
     }
 
+    function editTask(id, newTitle) {
+        this.tasks = this.tasks.map((task) =>
+            task.id === id ? {id :task.id, title: newTitle, comeplete: task.complete} : task,
+        );
+        _commit(this.tasks);
+    }
+
     /**
      * Removed a task from the list.
      * 
@@ -67,7 +74,7 @@ let TaskModel = (function() {
         _onTaskListChanged = callback;
     }
 
-    return {tasks, addTask, deleteTask, toggleTask, bindTaskListChanged};
+    return {tasks, addTask, editTask, deleteTask, toggleTask, bindTaskListChanged};
 })();
 
 export default TaskModel;

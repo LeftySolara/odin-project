@@ -18,6 +18,10 @@ let TaskController = (function() {
         _model.addTask(title);
     };
 
+    let _handleEditTask = (id, newTitle) => {
+        _model.editTask(id, newTitle);
+    };
+
     let _handleDeleteTask = (id) => {
         _model.deleteTask(id);
     };
@@ -33,6 +37,7 @@ let TaskController = (function() {
         _model.bindTaskListChanged(_onTaskListChanged);
 
         _view.bindAddTask(_handleAddTask);
+        _view.bindEditTask(_handleEditTask);
         _view.bindDeleteTask(_handleDeleteTask);
         _view.bindToggleTask(_handleToggleTask);
 

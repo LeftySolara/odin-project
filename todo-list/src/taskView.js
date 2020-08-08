@@ -7,6 +7,17 @@
 let TaskView = (function() {
     "use strict"
 
+    let taskTitleBuffer;
+
+    function _initLocalListeners() {
+        let taskList = getElement("#taskList");
+        taskList.addEventListener("input", event => {
+            if (event.target.className === "editable") {
+                taskTitleBuffer = event.target.innerText;
+            }
+        });
+    }
+
     /**
      * Initializes the view.
      */
@@ -35,6 +46,8 @@ let TaskView = (function() {
 
         form.append(taskTitleInput, submitButton);
         domRoot.append(title, form, taskList);
+
+        _initLocalListeners();
     }
 
     function displayTasks(tasks) {
@@ -123,6 +136,17 @@ let TaskView = (function() {
         });
     }
 
+    function bindEditTask(handler) {
+        let taskList = getElement("#taskList");
+        taskList.addEventListener("focusout", event => {
+            if (taskTitleBuffer) {
+                const id = parseInt(event.target.parentElement.id);
+                handler(id, taskTitleBuffer);
+                taskTitleBuffer = "";
+            }
+        });
+    }
+
     function bindDeleteTask(handler) {
         let taskList = getElement("#taskList");
         taskList.addEventListener("click", event => {
@@ -149,6 +173,7 @@ let TaskView = (function() {
         createElement,
         getElement,
         bindAddTask,
+        bindEditTask,
         bindDeleteTask,
         bindToggleTask
     };
