@@ -50,7 +50,7 @@ let TaskView = (function() {
         }
         else {
             tasks.forEach(task => {
-                const li = createElement("li");
+                const li = createElement("li", "task");
                 li.id = task.id;
 
                 /* Checkbox for toggling completion status. */
