@@ -5,7 +5,7 @@
  */
 
 let TaskController = (function() {
-    "use strict"
+    "use strict";
 
     let _model = null;
     let _view = null;
@@ -14,12 +14,8 @@ let TaskController = (function() {
         _view.displayTasks(_model.tasks);
     };
 
-    let _handleAddTask = (title, description) => {
-        _model.addTask(title, description);
-    };
-
-    let _handleEditTask = (id, title, description) => {
-        _model.editTask(id, title, description);
+    let _handleAddTask = (title) => {
+        _model.addTask(title);
     };
 
     let _handleDeleteTask = (id) => {
@@ -43,7 +39,7 @@ let TaskController = (function() {
         _onTaskListChanged();
     }
 
-    return { initialize };
+    return {initialize};
 })();
 
 export default TaskController;
