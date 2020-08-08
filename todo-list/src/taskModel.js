@@ -7,8 +7,13 @@
 let TaskModel = (function() {
     "use strict";
 
-    let tasks = [];
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     let _onTaskListChanged = function() {};
+
+    function _commit(tasks) {
+        _onTaskListChanged();
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
 
     /**
      * Adds a new task to the list.
@@ -23,7 +28,7 @@ let TaskModel = (function() {
         };
 
         tasks.push(task);
-        _onTaskListChanged();
+        _commit(tasks);
     }
 
     /**
@@ -33,7 +38,7 @@ let TaskModel = (function() {
      */
     function deleteTask(id) {
         this.tasks = this.tasks.filter((task) => task.id !== id);
-        _onTaskListChanged();
+        _commit(this.tasks);
     }
 
     /**
@@ -45,7 +50,7 @@ let TaskModel = (function() {
         this.tasks = this.tasks.map((task) =>
             task.id === id ? {id: task.id, title: task.title, complete: !task.complete} : task,
             )
-        _onTaskListChanged();
+        _commit(this.tasks);
     }
 
     function bindTaskListChanged(callback) {
