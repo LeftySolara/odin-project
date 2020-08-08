@@ -8,11 +8,21 @@ let TaskModel = (function() {
     "use strict";
 
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    let _nextID = _getNextID();
     let _onTaskListChanged = function() {};
 
     function _commit(tasks) {
         _onTaskListChanged();
         localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    /**
+     * Calculates the next ID to assign to new tasks.
+     * 
+     * @returns {number} - The ID to be assigned to the next new task.
+     */
+    function _getNextID() {
+        return tasks.length > 0 ? Math.max(...tasks.map(task => task.id)) + 1 : 0;
     }
 
     /**
@@ -22,7 +32,7 @@ let TaskModel = (function() {
      */
     function addTask(title) {
         const task = {
-            id: tasks.length,
+            id: _nextID++,
             title,
             complete: false
         };
