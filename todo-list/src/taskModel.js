@@ -12,8 +12,8 @@ let TaskModel = (function() {
     let _onTaskListChanged = function() {};
 
     function _commit(tasks) {
-        _onTaskListChanged();
         localStorage.setItem("tasks", JSON.stringify(tasks));
+        _onTaskListChanged();
     }
 
     /**
