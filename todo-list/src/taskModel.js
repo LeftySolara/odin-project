@@ -34,11 +34,13 @@ let TaskModel = (function() {
      * Adds a new task to the list.
      * 
      * @param {string} title - The title of the new task.
+     * @param {string} description - Detailed description of the task.
      */
-    function addTask(title) {
+    function addTask(title, description) {
         const task = {
             id: _nextID++,
             title,
+            description,
             complete: false
         };
 
@@ -51,10 +53,11 @@ let TaskModel = (function() {
      * 
      * @param {number} id - The ID number of the task to edit.
      * @param {string} newTitle - The new title for the task.
+     * @param {string} newDescription - The new description for the task.
      */
-    function editTask(id, newTitle) {
+    function editTask(id, newTitle, newDescription) {
         this.tasks = this.tasks.map((task) =>
-            task.id === id ? {id :task.id, title: newTitle, comeplete: task.complete} : task,
+            task.id === id ? {id :task.id, title: newTitle, description: newDescription, comeplete: task.complete} : task,
         );
         _commit(this.tasks);
     }

@@ -40,6 +40,12 @@ let TaskView = (function() {
         taskTitleInput.placeholder = "Task title";
         taskTitleInput.name = "taskTitle";
 
+        let taskDescriptionInput = createElement("input");
+        taskDescriptionInput.id = "taskDescriptionInput";
+        taskDescriptionInput.type = "text";
+        taskDescriptionInput.placeholder = "Task Description";
+        taskDescriptionInput.name = "taskDescription";
+
         let submitButton = createElement("button");
         submitButton.textContent = "Add Task";
         
@@ -47,7 +53,7 @@ let TaskView = (function() {
         let taskList = createElement("ul", "taskList");
         taskList.id = "taskList";
 
-        form.append(taskTitleInput, submitButton);
+        form.append(taskTitleInput, taskDescriptionInput, submitButton);
         domRoot.append(title, form, taskList);
 
         _initLocalListeners();
@@ -142,12 +148,13 @@ let TaskView = (function() {
     function bindAddTask(handler) {
         let form = getElement("#addTaskForm");
         let taskTitle = getElement("#taskTitleInput");
+        let taskDescription = getElement("#taskDescriptionInput");
 
         form.addEventListener("submit", event => {
             event.preventDefault();
 
             if (taskTitle.value) {
-                handler(taskTitle.value);
+                handler(taskTitle.value, taskDescription.value);
                 form.reset();
             }
         });
