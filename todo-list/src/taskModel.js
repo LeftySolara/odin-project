@@ -11,6 +11,11 @@ let TaskModel = (function() {
     let _nextID = _getNextID();
     let _onTaskListChanged = function() {};
 
+    /**
+     * Saves the list of tasks to localStorage.
+     * 
+     * @param {Array} tasks - A list of tasks to save.
+     */
     function _commit(tasks) {
         localStorage.setItem("tasks", JSON.stringify(tasks));
         _onTaskListChanged();
@@ -41,6 +46,12 @@ let TaskModel = (function() {
         _commit(tasks);
     }
 
+    /**
+     * Updates the title of a task.
+     * 
+     * @param {number} id - The ID number of the task to edit.
+     * @param {string} newTitle - The new title for the task.
+     */
     function editTask(id, newTitle) {
         this.tasks = this.tasks.map((task) =>
             task.id === id ? {id :task.id, title: newTitle, comeplete: task.complete} : task,
@@ -70,6 +81,12 @@ let TaskModel = (function() {
         _commit(this.tasks);
     }
 
+    /**
+     * Binds the given function to the model.
+     * This function is called each time the task list changes.
+     * 
+     * @param {function} callback - The callback function to execute.
+     */
     function bindTaskListChanged(callback) {
         _onTaskListChanged = callback;
     }

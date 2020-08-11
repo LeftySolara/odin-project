@@ -9,6 +9,9 @@ let TaskView = (function() {
 
     let taskTitleBuffer;
 
+    /**
+     * Initializes event listeners for the view.
+     */
     function _initLocalListeners() {
         let taskList = getElement("#taskList");
         taskList.addEventListener("input", event => {
@@ -19,7 +22,7 @@ let TaskView = (function() {
     }
 
     /**
-     * Initializes the view.
+     * Initializes DOM elements in the view.
      */
     function initializeView() {
         let domRoot = getElement("#root");
@@ -50,6 +53,11 @@ let TaskView = (function() {
         _initLocalListeners();
     }
 
+    /**
+     * Displays a list of tasks on the page.
+     * 
+     * @param {Array} tasks - The list of tasks to display.
+     */
     function displayTasks(tasks) {
         let taskList = getElement("#taskList");
         while (taskList.firstChild) {
@@ -97,6 +105,7 @@ let TaskView = (function() {
     }
 
     /**
+     * Creates a new element on the DOM.
      * 
      * @param {string} tag - The HTML tag of the new element.
      * @param {string} className - An optional class name for the new element.
@@ -112,7 +121,7 @@ let TaskView = (function() {
     }
 
     /**
-     * Helper function that retrieves an element from the DOM.
+     * Retrieves an element from the DOM.
      * 
      * @param {string} selector - The CSS selector used to identify the element.
      * @returns {element} - The DOM element that matches the selector.
@@ -122,6 +131,14 @@ let TaskView = (function() {
         return element;
     }
 
+    /**
+     * Sets up the event listener that fires when a task is added.
+     * 
+     * The provided callback function is responsible for passing the
+     * title of a new task to the controller.
+     * 
+     * @param {function} handler - Callback function that executes when a task is created.
+     */
     function bindAddTask(handler) {
         let form = getElement("#addTaskForm");
         let taskTitle = getElement("#taskTitleInput");
@@ -136,6 +153,14 @@ let TaskView = (function() {
         });
     }
 
+    /**
+     * Sets up the event listener that fires when a task is modified.
+     * 
+     * The provided callback function is responsible for passing the
+     * updated title of a task to the controller.
+     * 
+     * @param {function} handler - Callback function that executes when a task is modified.
+     */
     function bindEditTask(handler) {
         let taskList = getElement("#taskList");
         taskList.addEventListener("focusout", event => {
@@ -147,6 +172,14 @@ let TaskView = (function() {
         });
     }
 
+    /**
+     * Sets up the event listener that fires when a task is deleted.
+     * 
+     * The provided callback function is responsible for passing the
+     * ID of the task to the controller.
+     * 
+     * @param {function} handler - Callback function that executes when a task is deleted.
+     */
     function bindDeleteTask(handler) {
         let taskList = getElement("#taskList");
         taskList.addEventListener("click", event => {
@@ -157,6 +190,14 @@ let TaskView = (function() {
         });
     }
 
+    /**
+     * Sets up the event listener that fires when a task's status is changed.
+     * 
+     * The provided callback function is responsible for passing the
+     * ID of the task to the controller.
+     * 
+     * @param {function} handler - Callback function that executes when a task's status is toggled.
+     */
     function bindToggleTask(handler) {
         let taskList = getElement("#taskList");
         taskList.addEventListener("change", event => {
