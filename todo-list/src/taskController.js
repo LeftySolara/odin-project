@@ -14,12 +14,12 @@ let TaskController = (function() {
         _view.displayTasks(_model.tasks);
     };
 
-    let _handleAddTask = (title, description) => {
-        _model.addTask(title, description);
+    let _handleAddTask = (title, description, priority) => {
+        _model.addTask(title, description, priority);
     };
 
-    let _handleEditTask = (id, newTitle, newDescription) => {
-        _model.editTask(id, newTitle, newDescription);
+    let _handleEditTask = (id, newTitle, newDescription, newPriority) => {
+        _model.editTask(id, newTitle, newDescription, newPriority);
     };
 
     let _handleDeleteTask = (id) => {

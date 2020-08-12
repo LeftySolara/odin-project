@@ -42,10 +42,28 @@ let TaskView = (function() {
         taskDescriptionInput.placeholder = "Task Description";
         taskDescriptionInput.name = "taskDescription";
 
+        let priorityDropdown = createElement("select");
+        priorityDropdown.id = "priorityDropdown";
+        priorityDropdown.name = "priority";
+
+        let highPriority = createElement("option");
+        let mediumPriority = createElement("option");
+        let lowPriority = createElement("option");
+
+        highPriority.value = "1";
+        mediumPriority.value = "2";
+        lowPriority.value = "3";
+
+        highPriority.textContent = "High";
+        mediumPriority.textContent = "Medium";
+        lowPriority.textContent = "Low";
+
+        priorityDropdown.append(highPriority, mediumPriority, lowPriority);
+
         let submitButton = createElement("button");
         submitButton.textContent = "Add Task";
 
-        form.append(taskTitleInput, taskDescriptionInput, submitButton);
+        form.append(taskTitleInput, taskDescriptionInput, priorityDropdown, submitButton);
 
         return form;
     }
@@ -160,12 +178,14 @@ let TaskView = (function() {
         let form = getElement("#addTaskForm");
         let taskTitle = getElement("#taskTitleInput");
         let taskDescription = getElement("#taskDescriptionInput");
+        let taskPriority = getElement("#priorityDropdown");
+        taskPriority = taskPriority.options[taskPriority.selectedIndex].text;
 
         form.addEventListener("submit", event => {
             event.preventDefault();
 
             if (taskTitle.value) {
-                handler(taskTitle.value, taskDescription.value);
+                handler(taskTitle.value, taskDescription.value, taskPriority);
                 form.reset();
             }
         });

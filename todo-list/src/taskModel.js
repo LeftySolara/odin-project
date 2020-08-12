@@ -35,12 +35,14 @@ let TaskModel = (function() {
      * 
      * @param {string} title - The title of the new task.
      * @param {string} description - Detailed description of the task.
+     * @param {number} priority - The priority of the task.
      */
-    function addTask(title, description) {
+    function addTask(title, description, priority) {
         const task = {
             id: _nextID++,
             title,
             description,
+            priority,
             complete: false
         };
 
@@ -54,10 +56,11 @@ let TaskModel = (function() {
      * @param {number} id - The ID number of the task to edit.
      * @param {string} newTitle - The new title for the task.
      * @param {string} newDescription - The new description for the task.
+     * @param {number} newPriority - The new priority of the task.
      */
-    function editTask(id, newTitle, newDescription) {
+    function editTask(id, newTitle, newDescription, newPriority) {
         this.tasks = this.tasks.map((task) =>
-            task.id === id ? {id :task.id, title: newTitle, description: newDescription, comeplete: task.complete} : task,
+            task.id === id ? {id :task.id, title: newTitle, description: newDescription, priority: newPriority, comeplete: task.complete} : task,
         );
         _commit(this.tasks);
     }
