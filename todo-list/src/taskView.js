@@ -19,6 +19,15 @@ let TaskView = (function() {
                 taskTitleBuffer = event.target.innerText;
             }
         });
+
+        let modal = getElement("#detailsModal");
+        let span = getElement("#modalClose");
+        span.addEventListener("click", event => {
+            modal.style.display = "none";
+            document.querySelectorAll(".detail").forEach(function(a) {
+                a.remove();
+            });
+        });
     }
 
     /**
@@ -69,42 +78,6 @@ let TaskView = (function() {
     }
 
     /**
-     * Creates the modal used for displaying task details.
-     * 
-     * @returns {div} - The HTML modal.
-     */
-    function _createDetailsModal() {
-        let modal = createElement("div", "modal");
-        modal.id = "detailsModal";
-
-        let modalContent = createElement("div", "modalContent");
-        modalContent.id = "detailsModalContent";
-
-        let modalHeader = createElement("div", "modalHeader");
-        let headerText = createElement("h2");
-        headerText.textContent = "Task Details";
-
-        let span = createElement("span", "close");
-        span.textContent = "Close";
-        span.addEventListener("click", event => {
-            modal.style.display = "none";
-
-            document.querySelectorAll(".detail").forEach(function(a) {
-                a.remove();
-            });
-        });
-
-        modalHeader.append(headerText, span);
-        modalContent.append(modalHeader);
-        modal.append(modalContent);
-
-        let root = getElement("#root");
-        root.append(modal);
-
-        return modal;
-    }
-
-    /**
      * Initializes DOM elements in the view.
      */
     function initializeView() {
@@ -114,14 +87,13 @@ let TaskView = (function() {
         title.textContent = "Task List";
 
         let form = _createTaskCreationForm();
-        let modal = _createDetailsModal();
         
         /* The task list itself. */
         let taskList = createElement("ul", "taskList");
         taskList.id = "taskList";
 
 
-        domRoot.append(title, form, modal, taskList);
+        domRoot.append(title, form, taskList);
 
         _initLocalListeners();
     }
