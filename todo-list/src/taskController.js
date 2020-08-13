@@ -30,6 +30,10 @@ let TaskController = (function() {
         _model.toggleTask(id);
     };
 
+    let _handleShowTaskDetails = (id) => {
+        _view.showTaskDetails(_model.getTask(id));
+    }
+
     function initialize(model, view) {
         _model = model;
         _view = view;
@@ -40,6 +44,7 @@ let TaskController = (function() {
         _view.bindEditTask(_handleEditTask);
         _view.bindDeleteTask(_handleDeleteTask);
         _view.bindToggleTask(_handleToggleTask);
+        _view.bindShowTaskDetails(_handleShowTaskDetails);
 
         _onTaskListChanged();
     }

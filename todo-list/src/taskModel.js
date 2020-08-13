@@ -31,6 +31,16 @@ let TaskModel = (function() {
     }
 
     /**
+     * Returns details about the requested task.
+     * 
+     * @param {number} id - The ID number of the task.
+     * @returns {object} - The task matching the given ID number.
+     */
+    function getTask(id) {
+        return this.tasks.find(task => task.id === id);
+    }
+
+    /**
      * Adds a new task to the list.
      * 
      * @param {string} title - The title of the new task.
@@ -97,7 +107,7 @@ let TaskModel = (function() {
         _onTaskListChanged = callback;
     }
 
-    return {tasks, addTask, editTask, deleteTask, toggleTask, bindTaskListChanged};
+    return {tasks, getTask, addTask, editTask, deleteTask, toggleTask, bindTaskListChanged};
 })();
 
 export default TaskModel;

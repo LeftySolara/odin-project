@@ -129,14 +129,26 @@ let TaskView = (function() {
                     span.textContent = task.title;
                 }
 
-                /* Add a delete button to each task. */
+                const detailsButton = createElement("button", "details");
+                detailsButton.textContent = "Details";
+
                 const deleteButton = createElement("button", "delete");
                 deleteButton.textContent = "Delete";
-                li.append(checkbox, span, deleteButton);
+
+                li.append(checkbox, span, detailsButton, deleteButton);
 
                 taskList.append(li);
             });
         }
+    }
+
+    /**
+     * Displays detailed information about a task.
+     * 
+     * @param {object} task - The task to display.
+     */
+    function showTaskDetails(task) {
+        alert(task.title);
     }
 
     /**
@@ -245,15 +257,32 @@ let TaskView = (function() {
         });
     }
 
+    /**
+     * Sets up the event listener that displays a task's details.
+     * 
+     * @param {function} handler - Callback function for the event.
+     */
+    function bindShowTaskDetails(handler) {
+        let taskList = getElement("#taskList");
+        taskList.addEventListener("click", event => {
+            if (event.target.className === "details") {
+                const id = parseInt(event.target.parentElement.id);
+                handler(id);
+            }
+        });
+    }
+
     return {
         initializeView,
         displayTasks,
+        showTaskDetails,
         createElement,
         getElement,
         bindAddTask,
         bindEditTask,
         bindDeleteTask,
-        bindToggleTask
+        bindToggleTask,
+        bindShowTaskDetails
     };
 
 })();
