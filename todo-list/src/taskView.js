@@ -179,13 +179,12 @@ let TaskView = (function() {
         let taskTitle = getElement("#taskTitleInput");
         let taskDescription = getElement("#taskDescriptionInput");
         let taskPriority = getElement("#priorityDropdown");
-        taskPriority = taskPriority.options[taskPriority.selectedIndex].text;
 
         form.addEventListener("submit", event => {
             event.preventDefault();
 
             if (taskTitle.value) {
-                handler(taskTitle.value, taskDescription.value, taskPriority);
+                handler(taskTitle.value, taskDescription.value, taskPriority.value);
                 form.reset();
             }
         });
