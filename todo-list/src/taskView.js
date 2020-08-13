@@ -35,9 +35,8 @@ let TaskView = (function() {
      * 
      * @returns {form} - The HTML form.
      */
-    function _createTaskCreationForm() {
-        let form = createElement("form");
-        form.id = "addTaskForm";
+    function _initializeTaskCreationForm() {
+        let form = getElement("#addTaskForm");
 
         let taskTitleInput = createElement("input");
         taskTitleInput.id = "taskTitleInput";
@@ -81,20 +80,7 @@ let TaskView = (function() {
      * Initializes DOM elements in the view.
      */
     function initializeView() {
-        let domRoot = getElement("#root");
-
-        let title = createElement("h1");
-        title.textContent = "Task List";
-
-        let form = _createTaskCreationForm();
-        
-        /* The task list itself. */
-        let taskList = createElement("ul", "taskList");
-        taskList.id = "taskList";
-
-
-        domRoot.append(title, form, taskList);
-
+        _initializeTaskCreationForm();
         _initLocalListeners();
     }
 
