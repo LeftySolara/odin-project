@@ -52,10 +52,18 @@
     padding: 2px 16px;
 }
 
+.modalContent h2 {
+    font-size: 1.7em;
+}
+
 .modalHeader {
     padding: 2px 16px;
     background-color: cadetblue;
     color: white;
+}
+
+.detail {
+    padding: 2px 16px;
 }
 
 .close {

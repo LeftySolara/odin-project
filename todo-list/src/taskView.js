@@ -144,11 +144,25 @@ let TaskView = (function() {
      * @param {object} task - The task to display.
      */
     function showTaskDetails(task) {
-        let title = createElement("p", "detail");
+        let title = createElement("h2", "detail");
         title.textContent = task.title;
 
+        let description = createElement("p", "detail");
+        description.textContent = task.description ? task.description : "No description given.";
+
+        let priority = createElement("p", "detail");
+        if (priority === 1) {
+            priority.textContent = "Priority: High";
+        }
+        else if (priority === 2) {
+            priority.textContent = "Priority: Medium";
+        }
+        else {
+            priority.textContent = "Priority: Low";
+        }
+
         let modalContent = getElement("#detailsModalContent");
-        modalContent.append(title);
+        modalContent.append(title, description, priority);
 
         let modal = getElement("#detailsModal");
         modal.style.display = "block";
