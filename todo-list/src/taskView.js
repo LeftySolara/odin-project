@@ -8,6 +8,8 @@ let TaskView = (function() {
     "use strict"
 
     let taskTitleBuffer;
+    let deleteIcon = "../node_modules/tabler-icons/icons/trash.svg";
+    let detailsIcon = "../node_modules/tabler-icons/icons/edit.svg";
 
     /**
      * Initializes event listeners for the view.
@@ -125,11 +127,11 @@ let TaskView = (function() {
                     span.textContent = task.title;
                 }
 
-                const detailsButton = createElement("button", "details");
-                detailsButton.textContent = "Details";
+                const detailsButton = createElement("img", "details");
+                detailsButton.setAttribute("src", detailsIcon);
 
-                const deleteButton = createElement("button", "delete");
-                deleteButton.textContent = "Delete";
+                const deleteButton = createElement("img", "delete");
+                deleteButton.setAttribute("src", deleteIcon);
 
                 let buttonContainer = createElement("div", "taskButtonContainer");
                 buttonContainer.append(detailsButton, deleteButton);

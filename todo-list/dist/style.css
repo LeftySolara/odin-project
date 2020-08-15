@@ -30,6 +30,11 @@
     padding-left: 5px;
 }
 
+.task img {
+    color: var(--main-foreground-color);
+    stroke-width: 0.5;
+}
+
 .taskButtonContainer {
     margin-left: auto;
 }
