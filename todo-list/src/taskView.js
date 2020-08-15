@@ -201,6 +201,18 @@ let TaskView = (function() {
     }
 
     /**
+     * Sets attributes for a DOM element.
+     * 
+     * @param {element} element - The DOM element.
+     * @param {object} attrs - An object containing the new set of attributes.
+     */
+    function setAttributes(element, attrs) {
+        for (let key in attrs) {
+            element.setAttribute(key, attrs[key]);
+        }
+    }
+
+    /**
      * Sets up the event listener that fires when a task is added.
      * 
      * The provided callback function is responsible for passing the
