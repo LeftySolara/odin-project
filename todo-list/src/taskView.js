@@ -131,7 +131,10 @@ let TaskView = (function() {
                 const deleteButton = createElement("button", "delete");
                 deleteButton.textContent = "Delete";
 
-                li.append(checkbox, span, detailsButton, deleteButton);
+                let buttonContainer = createElement("div", "taskButtonContainer");
+                buttonContainer.append(detailsButton, deleteButton);
+
+                li.append(checkbox, span, buttonContainer);
 
                 taskList.append(li);
             });
@@ -250,7 +253,7 @@ let TaskView = (function() {
         let taskList = getElement("#taskList");
         taskList.addEventListener("click", event => {
             if (event.target.className === "delete") {
-                const id = parseInt(event.target.parentElement.id);
+                const id = parseInt(event.target.parentElement.parentElement.id);
                 handler(id);
             }
         });
@@ -283,7 +286,7 @@ let TaskView = (function() {
         let taskList = getElement("#taskList");
         taskList.addEventListener("click", event => {
             if (event.target.className === "details") {
-                const id = parseInt(event.target.parentElement.id);
+                const id = parseInt(event.target.parentElement.parentElement.id);
                 handler(id);
             }
         });

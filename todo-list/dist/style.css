@@ -1,8 +1,17 @@
+:root {
+    --modal-padding: 2px 16px;
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --main-background-color: #f8f8f8;
+    --main-foreground-color: #383838;
+    --accent-color: #86c1b9;
+}
+
 #taskList {
     display: flex;
     flex-flow: column nowrap;
     list-style: none;
-    width: 20%;
+    margin-top: 25px;
+    width: 33%;
 }
 
 .task {
@@ -10,17 +19,18 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: left;
-    background-color: beige;
-    margin-bottom: 10px;
-    border: 2px solid black;
+    margin-bottom: 20px;
     border-radius: 8px;
+    box-shadow: var(--shadow);
+    background-color: var(--main-background-color);
+    color: var(--main-foreground-color);
 }
 
 .task span {
     padding-left: 5px;
 }
 
-.task button {
+.taskButtonContainer {
     margin-left: auto;
 }
 
@@ -43,27 +53,27 @@
     padding: 0;
     border: 1px solid #888;
     width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: var(--shadow);
     animation-name: animatetop;
     animation-duration: 0.4s;
 }
 
 .modalContent p {
-    padding: 2px 16px;
+    padding: var(--modal-padding);
 }
 
 .modalContent h2 {
-    font-size: 1.7em;
+    font-size: 1.8em;
 }
 
 .modalHeader {
-    padding: 2px 16px;
-    background-color: cadetblue;
-    color: white;
+    padding: var(--modal-padding);
+    background-color: var(--accent-color);
+    color: var(--main-background-color);
 }
 
 .detail {
-    padding: 2px 16px;
+    padding: var(--modal-padding);
 }
 
 .close {
