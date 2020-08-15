@@ -79,6 +79,18 @@ let TaskView = (function() {
     }
 
     /**
+     * Sets attributes for a DOM element.
+     * 
+     * @param {element} element - The DOM element.
+     * @param {object} attrs - An object containing the new set of attributes.
+     */
+    function _setAttributes(element, attrs) {
+        for (let key in attrs) {
+            element.setAttribute(key, attrs[key]);
+        }
+    }
+
+    /**
      * Initializes DOM elements in the view.
      */
     function initializeView() {
@@ -198,18 +210,6 @@ let TaskView = (function() {
     function getElement(selector) {
         const element = document.querySelector(selector);
         return element;
-    }
-
-    /**
-     * Sets attributes for a DOM element.
-     * 
-     * @param {element} element - The DOM element.
-     * @param {object} attrs - An object containing the new set of attributes.
-     */
-    function setAttributes(element, attrs) {
-        for (let key in attrs) {
-            element.setAttribute(key, attrs[key]);
-        }
     }
 
     /**
