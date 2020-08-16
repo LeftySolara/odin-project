@@ -1,9 +1,13 @@
 :root {
     --modal-padding: 2px 16px;
     --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    --main-background-color: #f8f8f8;
+    --main-background-color: #ffffff;
     --main-foreground-color: #383838;
     --accent-color: #86c1b9;
+}
+
+body, html {
+    background-color: var(--main-background-color);
 }
 
 #taskList {
@@ -19,9 +23,7 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: left;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--main-foreground-color);
     background-color: var(--main-background-color);
     color: var(--main-foreground-color);
 }
