@@ -168,10 +168,10 @@ let TaskView = (function() {
         description.textContent = task.description ? task.description : "No description given.";
 
         let priority = createElement("p", "detail");
-        if (priority === 1) {
+        if (task.priority == 1) {
             priority.textContent = "Priority: High";
         }
-        else if (priority === 2) {
+        else if (task.priority == 2) {
             priority.textContent = "Priority: Medium";
         }
         else {
