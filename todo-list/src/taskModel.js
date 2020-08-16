@@ -46,6 +46,7 @@ let TaskModel = (function() {
      * @param {string} title - The title of the new task.
      * @param {string} description - Detailed description of the task.
      * @param {number} priority - The priority of the task.
+     * @param {date} dueDate - The due date of the task.
      */
     function addTask(title, description, priority, dueDate) {
         const task = {
@@ -68,6 +69,7 @@ let TaskModel = (function() {
      * @param {string} newTitle - The new title for the task.
      * @param {string} newDescription - The new description for the task.
      * @param {number} newPriority - The new priority of the task.
+     * @param {date} newDueDate - The new due date of the task.
      */
     function editTask(id, newTitle, newDescription, newPriority, newDueDate) {
         this.tasks = this.tasks.map((task) =>
