@@ -4,6 +4,8 @@
  * View for displaying task items.
  */
 
+import {format, parseISO} from "date-fns";
+
 let TaskView = (function() {
     "use strict"
 
@@ -70,10 +72,14 @@ let TaskView = (function() {
 
         priorityDropdown.append(highPriority, mediumPriority, lowPriority);
 
+        let dateInput = createElement("input");
+        dateInput.id = "dateInput";
+        dateInput.type = "date";
+
         let submitButton = createElement("button");
         submitButton.textContent = "Add Task";
 
-        form.append(taskTitleInput, taskDescriptionInput, priorityDropdown, submitButton);
+        form.append(taskTitleInput, taskDescriptionInput, priorityDropdown, dateInput, submitButton);
 
         return form;
     }
@@ -178,8 +184,17 @@ let TaskView = (function() {
             priority.textContent = "Priority: Low";
         }
 
+        let dueDate = createElement("p");
+        if (task.dueDate) {
+            let formattedDate = format(parseISO(task.dueDate), "MMM d");
+            dueDate.textContent = "Due: " + formattedDate;
+        }
+        else {
+            dueDate.textContent = "No due date";
+        }
+
         let modalContent = getElement("#detailsModalContent");
-        modalContent.append(title, description, priority);
+        modalContent.append(title, description, priority, dueDate);
 
         let modal = getElement("#detailsModal");
         modal.style.display = "block";
@@ -225,12 +240,13 @@ let TaskView = (function() {
         let taskTitle = getElement("#taskTitleInput");
         let taskDescription = getElement("#taskDescriptionInput");
         let taskPriority = getElement("#priorityDropdown");
+        let taskDueDate = getElement("#dateInput");
 
         form.addEventListener("submit", event => {
             event.preventDefault();
 
             if (taskTitle.value) {
-                handler(taskTitle.value, taskDescription.value, taskPriority.value);
+                handler(taskTitle.value, taskDescription.value, taskPriority.value, taskDueDate.value);
                 form.reset();
             }
         });

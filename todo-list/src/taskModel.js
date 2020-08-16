@@ -47,13 +47,14 @@ let TaskModel = (function() {
      * @param {string} description - Detailed description of the task.
      * @param {number} priority - The priority of the task.
      */
-    function addTask(title, description, priority) {
+    function addTask(title, description, priority, dueDate) {
         const task = {
             id: _nextID++,
             title,
             description,
             priority,
-            complete: false
+            complete: false,
+            dueDate
         };
 
         tasks.push(task);
@@ -68,9 +69,9 @@ let TaskModel = (function() {
      * @param {string} newDescription - The new description for the task.
      * @param {number} newPriority - The new priority of the task.
      */
-    function editTask(id, newTitle, newDescription, newPriority) {
+    function editTask(id, newTitle, newDescription, newPriority, newDueDate) {
         this.tasks = this.tasks.map((task) =>
-            task.id === id ? {id :task.id, title: newTitle, description: newDescription, priority: newPriority, comeplete: task.complete} : task,
+            task.id === id ? {id :task.id, title: newTitle, description: newDescription, priority: newPriority, dueDate: newDueDate, comeplete: task.complete} : task,
         );
         _commit(this.tasks);
     }
