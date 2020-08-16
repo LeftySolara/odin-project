@@ -4,11 +4,12 @@
  * View for displaying task items.
  */
 
-import {format, parseISO} from "date-fns";
+import {format, parseISO, sub} from "date-fns";
 
 let TaskView = (function() {
     "use strict"
 
+    let _addTaskForm = _createAddTaskForm();
     let taskTitleBuffer;
     let deleteIcon = "../node_modules/tabler-icons/icons/trash.svg";
     let detailsIcon = "../node_modules/tabler-icons/icons/edit.svg";
@@ -32,56 +33,6 @@ let TaskView = (function() {
                 a.remove();
             });
         });
-    }
-
-    /**
-     * Creates the form used to add new tasks.
-     * 
-     * @returns {form} - The HTML form.
-     */
-    function _initializeTaskCreationForm() {
-        let form = getElement("#addTaskForm");
-
-        let taskTitleInput = createElement("input");
-        taskTitleInput.id = "taskTitleInput";
-        taskTitleInput.type = "text";
-        taskTitleInput.placeholder = "Task title";
-        taskTitleInput.name = "taskTitle";
-
-        let taskDescriptionInput = createElement("input");
-        taskDescriptionInput.id = "taskDescriptionInput";
-        taskDescriptionInput.type = "text";
-        taskDescriptionInput.placeholder = "Task Description";
-        taskDescriptionInput.name = "taskDescription";
-
-        let priorityDropdown = createElement("select");
-        priorityDropdown.id = "priorityDropdown";
-        priorityDropdown.name = "priority";
-
-        let highPriority = createElement("option");
-        let mediumPriority = createElement("option");
-        let lowPriority = createElement("option");
-
-        highPriority.value = "1";
-        mediumPriority.value = "2";
-        lowPriority.value = "3";
-
-        highPriority.textContent = "High";
-        mediumPriority.textContent = "Medium";
-        lowPriority.textContent = "Low";
-
-        priorityDropdown.append(highPriority, mediumPriority, lowPriority);
-
-        let dateInput = createElement("input");
-        dateInput.id = "dateInput";
-        dateInput.type = "date";
-
-        let submitButton = createElement("button");
-        submitButton.textContent = "Add Task";
-
-        form.append(taskTitleInput, taskDescriptionInput, priorityDropdown, dateInput, submitButton);
-
-        return form;
     }
 
     /**
@@ -110,14 +61,95 @@ let TaskView = (function() {
         item.classList.add("addTask");
         item.append(plus, text);
 
+        item.addEventListener("click", _displayAddTaskForm);
+
         return item;
+    }
+
+    /**
+     * Creates the form used to add a new task.
+     */
+    function _createAddTaskForm() {
+        let form = createElement("form", "addTaskForm");
+        form.id = "addTaskForm";
+        _setAttributes(form, {
+            "autocomplete": "off",
+            "name": "addTaskForm"
+        });
+
+        let title = createElement("input");
+        title.required = true;
+        _setAttributes(title, {
+            "id": "titleInput",
+            "type": "text",
+            "placeholder": "Title",
+            "name": "title",
+            "autocomplete": "off"
+        });
+
+        let description = createElement("input");
+        _setAttributes(description, {
+            "id": "descriptionInput",
+            "type": "text",
+            "placeholder": "Description",
+            "name": "description",
+            "autocomplete": "off"
+        });
+
+        let dueDate = createElement("input");
+        _setAttributes(dueDate, {
+            "id": "dueDateInput",
+            "type": "date",
+            "name": "dueDate"
+        });
+
+        let priority = createElement("select");
+        _setAttributes(priority, {
+            "id": "priorityInput",
+            "name": "priority",
+        });
+
+        let highPriority = createElement("option");
+        let mediumPriority = createElement("option");
+        let lowPriority = createElement("option");
+
+        highPriority.value = "1";
+        mediumPriority.value = "2";
+        lowPriority.value = "3";
+
+        highPriority.textContent = "High";
+        mediumPriority.textContent = "Medium";
+        lowPriority.textContent = "Low";
+
+        priority.append(highPriority, mediumPriority, lowPriority);
+
+        let submit = createElement("input", "submit");
+        submit.value = "Add Task";
+        _setAttributes(submit, {
+            "type": "submit",
+            "name": "submit"
+        });
+
+        form.append(title, description, dueDate, priority, submit);
+        return form;
+    }
+
+    /**
+     * Replaces the "Add task" list item with the "Add task" form.
+     */
+    function _displayAddTaskForm() {
+        let taskList = getElement("#taskList");
+
+        this.remove();
+        taskList.append(_addTaskForm);
     }
 
     /**
      * Initializes DOM elements in the view.
      */
     function initializeView() {
-        _initializeTaskCreationForm();
+        let taskList = getElement("#taskList");
+        taskList.append(_createAddTaskRow());
         _initLocalListeners();
     }
 
@@ -255,19 +287,17 @@ let TaskView = (function() {
      * @param {function} handler - Callback function that executes when a task is created.
      */
     function bindAddTask(handler) {
-        let form = getElement("#addTaskForm");
-        let taskTitle = getElement("#taskTitleInput");
-        let taskDescription = getElement("#taskDescriptionInput");
-        let taskPriority = getElement("#priorityDropdown");
-        let taskDueDate = getElement("#dateInput");
-
-        form.addEventListener("submit", event => {
+        _addTaskForm.addEventListener("submit", event => {
             event.preventDefault();
 
-            if (taskTitle.value) {
-                handler(taskTitle.value, taskDescription.value, taskPriority.value, taskDueDate.value);
-                form.reset();
-            }
+            const title = _addTaskForm.elements["title"].value;
+            const description = _addTaskForm.elements["description"].value;
+            const priority = _addTaskForm.elements["priority"].value;
+            const dueDate = _addTaskForm.elements["dueDate"].value;
+
+            handler(title, description, priority, dueDate);
+            _addTaskForm.remove();
+            _addTaskForm.reset();
         });
     }
 
