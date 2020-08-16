@@ -184,7 +184,7 @@ let TaskView = (function() {
             priority.textContent = "Priority: Low";
         }
 
-        let dueDate = createElement("p");
+        let dueDate = createElement("p", "detail");
         if (task.dueDate) {
             let formattedDate = format(parseISO(task.dueDate), "MMM d");
             dueDate.textContent = "Due: " + formattedDate;
