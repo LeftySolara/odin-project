@@ -97,6 +97,23 @@ let TaskView = (function() {
     }
 
     /**
+     * Creates the "Add task" item that appears at the bottom of each task list.
+     */
+    function _createAddTaskRow() {
+        let plus = createElement("p", "plus");
+        plus.textContent = "+";
+
+        let text = createElement("p");
+        text.textContent = "Add task";
+
+        let item = createElement("li", "task");
+        item.classList.add("addTask");
+        item.append(plus, text);
+
+        return item;
+    }
+
+    /**
      * Initializes DOM elements in the view.
      */
     function initializeView() {
@@ -159,6 +176,8 @@ let TaskView = (function() {
                 taskList.append(li);
             });
         }
+
+        taskList.append(_createAddTaskRow());
     }
 
     /**

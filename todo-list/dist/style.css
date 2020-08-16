@@ -2,7 +2,7 @@
     --modal-padding: 2px 16px;
     --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --main-background-color: #ffffff;
-    --main-foreground-color: #383838;
+    --main-foreground-color: #181818;
     --accent-color: #86c1b9;
     --paragraph-font: "Source Sans Pro", sans-serif;
     --header-font: "Lato", sans-serif;
@@ -60,6 +60,29 @@ h1 {
 
 .taskButtonContainer {
     margin-left: auto;
+}
+
+.addTask {
+    border-bottom: none;
+    opacity: 0.6;
+    transition: 0.3s;
+    width: 10%;
+}
+
+.addTask:hover {
+    opacity: 1;
+}
+
+.addTask p {
+    margin: 0px 0px 0px 10px;
+}
+
+.addTask .plus {
+    color: var(--accent-color);
+    font-size: 1.7em;
+    font-weight: bold;
+    padding: 0;
+    margin-left: 5px;
 }
 
 .modal {
