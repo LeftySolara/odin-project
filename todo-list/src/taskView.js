@@ -9,7 +9,7 @@ import {format, parseISO, sub} from "date-fns";
 let TaskView = (function() {
     "use strict"
 
-    let _addTaskForm = _createAddTaskForm();
+    let _addTaskForm = getElement("#addTaskForm");
     let taskTitleBuffer;
     let deleteIcon = "../node_modules/tabler-icons/icons/trash.svg";
     let detailsIcon = "../node_modules/tabler-icons/icons/edit.svg";
@@ -64,74 +64,6 @@ let TaskView = (function() {
         item.addEventListener("click", _displayAddTaskForm);
 
         return item;
-    }
-
-    /**
-     * Creates the form used to add a new task.
-     */
-    function _createAddTaskForm() {
-        let form = createElement("form", "addTaskForm");
-        form.id = "addTaskForm";
-        _setAttributes(form, {
-            "autocomplete": "off",
-            "name": "addTaskForm"
-        });
-
-        let title = createElement("input");
-        title.required = true;
-        _setAttributes(title, {
-            "id": "titleInput",
-            "type": "text",
-            "placeholder": "Title",
-            "name": "title",
-            "autocomplete": "off"
-        });
-
-        let description = createElement("input");
-        _setAttributes(description, {
-            "id": "descriptionInput",
-            "type": "text",
-            "placeholder": "Description",
-            "name": "description",
-            "autocomplete": "off"
-        });
-
-        let dueDate = createElement("input");
-        _setAttributes(dueDate, {
-            "id": "dueDateInput",
-            "type": "date",
-            "name": "dueDate"
-        });
-
-        let priority = createElement("select");
-        _setAttributes(priority, {
-            "id": "priorityInput",
-            "name": "priority",
-        });
-
-        let highPriority = createElement("option");
-        let mediumPriority = createElement("option");
-        let lowPriority = createElement("option");
-
-        highPriority.value = "1";
-        mediumPriority.value = "2";
-        lowPriority.value = "3";
-
-        highPriority.textContent = "High";
-        mediumPriority.textContent = "Medium";
-        lowPriority.textContent = "Low";
-
-        priority.append(highPriority, mediumPriority, lowPriority);
-
-        let submit = createElement("input", "submit");
-        submit.value = "Add Task";
-        _setAttributes(submit, {
-            "type": "submit",
-            "name": "submit"
-        });
-
-        form.append(title, description, dueDate, priority, submit);
-        return form;
     }
 
     /**

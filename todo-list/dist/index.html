@@ -21,7 +21,19 @@
                     </div>
                 </div>
             </div>
-            <ul id="taskList" class="taskList"></ul>
+            <ul id="taskList" class="taskList">
+                <form id="addTaskForm" class="addTaskForm" autocomplete="off" name="addTaskForm">
+                    <input id="titleInput" type="text" placeholder="Title" name="title" autocomplete="off" required>
+                    <input id="descriptionInput" type="text" placeholder="Description" name="description" autocomplete="off">
+                    <input id="dueDateInput" type="date" name="dueDate">
+                    <select id="priorityInput" name="priority">
+                        <option value="1">High</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Low</option>
+                    </select>
+                    <input class="submit" type="submit" value="Add Task" name="submit">
+                </form>
+            </ul>
         </div>
         <script src="main.js"></script>
     </body>
