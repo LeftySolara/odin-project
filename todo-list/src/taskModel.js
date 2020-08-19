@@ -113,6 +113,13 @@ let TaskModel = (function() {
         _commit();
     }
 
+    function editProject(id, newName) {
+        this.projects = this.projects.map((project) =>
+            project.id === id ? {id: project.id, name: newName} : project,
+        );
+        _commit();
+    }
+
     /**
      * Removed a task from the list.
      * 
@@ -120,6 +127,11 @@ let TaskModel = (function() {
      */
     function deleteTask(id) {
         this.tasks = this.tasks.filter((task) => task.id !== id);
+        _commit();
+    }
+
+    function deleteProject(id) {
+        this.projects = this.projects.filter((project) => project.id !== id);
         _commit();
     }
 
