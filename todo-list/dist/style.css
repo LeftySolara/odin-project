@@ -3,15 +3,26 @@
     --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --main-background-color: #ffffff;
     --main-foreground-color: #181818;
+    --dark-foreground-color: #f8f8f8;
+    --border: 1px solid #d8d8d8;
     --accent-color: #86c1b9;
     --paragraph-font: "Source Sans Pro", sans-serif;
     --header-font: "Lato", sans-serif;
+    --sidebar-width: 200px;
 }
 
-body, html {
+body {
     background-color: var(--main-background-color);
     font-family: var(--paragraph-font);
     font-size: 1.2em;
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
 }
 
 h1 {
@@ -25,6 +36,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: var(--sidebar-width);
+    padding: 1px 20px;
 }
 
 #addTaskForm {
@@ -35,8 +48,21 @@ h1 {
     display: flex;
     flex-flow: column nowrap;
     list-style: none;
-    margin-top: 25px;
-    width: 75%;
+    width: 97%;
+    padding: 0;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: var(--sidebar-width);
+    background-color: var(--dark-foreground-color);
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    border-right: var(--border);
+    text-align: center;
+    font-family: var(--header-font);
 }
 
 .task {
@@ -44,7 +70,7 @@ h1 {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: left;
-    border-bottom: 1px solid var(--main-foreground-color);
+    border-bottom: var(--border);
     background-color: var(--main-background-color);
     color: var(--main-foreground-color);
 }
