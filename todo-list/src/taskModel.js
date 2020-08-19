@@ -8,16 +8,17 @@ let TaskModel = (function() {
     "use strict";
 
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    let _nextID = _getNextID();
+    let projects = JSON.parse(localStorage.getItem("projects")) || [];
+    let _nextTaskID = _getNextTaskID();
+    let _nextProjectID = _getNextProjectID();
     let _onTaskListChanged = function() {};
 
     /**
      * Saves the list of tasks to localStorage.
-     * 
-     * @param {Array} tasks - A list of tasks to save.
      */
-    function _commit(tasks) {
+    function _commit() {
         localStorage.setItem("tasks", JSON.stringify(tasks));
+        localStorage.setItem("projects", JSON.stringify(projects));
         _onTaskListChanged();
     }
 
@@ -26,8 +27,17 @@ let TaskModel = (function() {
      * 
      * @returns {number} - The ID to be assigned to the next new task.
      */
-    function _getNextID() {
+    function _getNextTaskID() {
         return tasks.length > 0 ? Math.max(...tasks.map(task => task.id)) + 1 : 0;
+    }
+
+    /**
+     * Calculates the next ID to assign to new projects.
+     * 
+     * @returns {number} - The ID to be assigned to the next new project.
+     */
+    function _getNextProjectID() {
+        return projects.length > 0 ? Math.max(...projects.map(project => project.id)) + 1 : 0;
     }
 
     /**
@@ -41,6 +51,16 @@ let TaskModel = (function() {
     }
 
     /**
+     * Returns details about a project.
+     * 
+     * @param {number} id - The ID number of the project.
+     * @returns {object} - The project matching the given ID number.
+     */
+    function getProject(id) {
+        return this.projects.find(project => project.id === id);
+    }
+
+    /**
      * Adds a new task to the list.
      * 
      * @param {string} title - The title of the new task.
@@ -50,7 +70,7 @@ let TaskModel = (function() {
      */
     function addTask(title, description, priority, dueDate) {
         const task = {
-            id: _nextID++,
+            id: _nextTaskID++,
             title,
             description,
             priority,
@@ -59,7 +79,22 @@ let TaskModel = (function() {
         };
 
         tasks.push(task);
-        _commit(tasks);
+        _commit();
+    }
+
+    /**
+     * Creates a new project.
+     * 
+     * @param {string} name - The name of the new project.
+     */
+    function addProject(name) {
+        const project = {
+            id: _nextProjectID++,
+            name
+        };
+
+        projects.push(project);
+        _commit();
     }
 
     /**
@@ -75,7 +110,7 @@ let TaskModel = (function() {
         this.tasks = this.tasks.map((task) =>
             task.id === id ? {id :task.id, title: newTitle, description: newDescription, priority: newPriority, dueDate: newDueDate, comeplete: task.complete} : task,
         );
-        _commit(this.tasks);
+        _commit();
     }
 
     /**
@@ -85,7 +120,7 @@ let TaskModel = (function() {
      */
     function deleteTask(id) {
         this.tasks = this.tasks.filter((task) => task.id !== id);
-        _commit(this.tasks);
+        _commit();
     }
 
     /**
@@ -97,7 +132,7 @@ let TaskModel = (function() {
         this.tasks = this.tasks.map((task) =>
             task.id === id ? {id: task.id, title: task.title, complete: !task.complete} : task,
             )
-        _commit(this.tasks);
+        _commit();
     }
 
     /**
