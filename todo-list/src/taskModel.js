@@ -12,6 +12,7 @@ let TaskModel = (function() {
     let _nextTaskID = _getNextTaskID();
     let _nextProjectID = _getNextProjectID();
     let _onTaskListChanged = function() {};
+    let _onProjectListChanged = function() {};
 
     /**
      * Saves the list of tasks to localStorage.
@@ -20,6 +21,7 @@ let TaskModel = (function() {
         localStorage.setItem("tasks", JSON.stringify(tasks));
         localStorage.setItem("projects", JSON.stringify(projects));
         _onTaskListChanged();
+        _onProjectListChanged();
     }
 
     /**
@@ -157,7 +159,17 @@ let TaskModel = (function() {
         _onTaskListChanged = callback;
     }
 
-    return {tasks, getTask, addTask, editTask, deleteTask, toggleTask, bindTaskListChanged};
+    /**
+     * Binds the given function to the model.
+     * This function is called each time the project list changes.
+     * 
+     * @param {function} callback - The callback function to execute.
+     */
+    function bindProjectListChanged(callback) {
+        _onProjectListChanged = callback;
+    }
+
+    return {tasks, projects, getTask, addTask, addProject,  editTask, deleteTask, toggleTask, bindTaskListChanged, bindProjectListChanged};
 })();
 
 export default TaskModel;

@@ -14,9 +14,17 @@ let TaskController = (function() {
         _view.displayTasks(_model.tasks);
     };
 
+    let _onProjectListChanged = () => {
+        _view.displayProjects(_model.projects);
+    }
+
     let _handleAddTask = (title, description, priority, dueDate) => {
         _model.addTask(title, description, priority, dueDate);
     };
+
+    let _handleAddProject = (name) => {
+        _model.addProject(name);
+    }
 
     let _handleEditTask = (id, newTitle, newDescription, newPriority, newDueDate) => {
         _model.editTask(id, newTitle, newDescription, newPriority, newDueDate);
@@ -39,14 +47,17 @@ let TaskController = (function() {
         _view = view;
 
         _model.bindTaskListChanged(_onTaskListChanged);
+        _model.bindProjectListChanged(_onProjectListChanged);
 
         _view.bindAddTask(_handleAddTask);
+        _view.bindAddProject(_handleAddProject);
         _view.bindEditTask(_handleEditTask);
         _view.bindDeleteTask(_handleDeleteTask);
         _view.bindToggleTask(_handleToggleTask);
         _view.bindShowTaskDetails(_handleShowTaskDetails);
 
         _onTaskListChanged();
+        _onProjectListChanged();
     }
 
     return {initialize};

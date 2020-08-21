@@ -13,7 +13,11 @@
     <body>
         <div id="projectSidebar" class="sidebar">
             <h2>Projects</h2>
-            <button>Add Project</button>
+            <ul id="projectList">
+                <form id="addProjectForm" class="addProjectForm" autocomplete="off" name="addProjectForm">
+                    <input id="projectInput" type=text placeholder="Project Name" name="name" autocomplete="off" required>
+                </form>
+            </ul>
         </div>
         <div id="root">
             <h1>Todo List</h1>

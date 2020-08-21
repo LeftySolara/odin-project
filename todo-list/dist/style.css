@@ -52,6 +52,12 @@ h1 {
     padding: 0;
 }
 
+#projectList {
+    list-style-type: none;
+    font-family: var(--paragraph-font);
+    text-align: left;
+}
+
 .sidebar {
     margin: 0;
     padding: 0;
@@ -63,6 +69,10 @@ h1 {
     border-right: var(--border);
     text-align: center;
     font-family: var(--header-font);
+}
+
+.project {
+    padding-bottom: 5px;
 }
 
 .task {
@@ -95,7 +105,7 @@ h1 {
     width: 10%;
 }
 
-.addTask:hover {
+.addTask:hover, .addProject:hover {
     opacity: 1;
 }
 
@@ -111,8 +121,14 @@ h1 {
     margin-left: 5px;
 }
 
-.addTaskForm input {
+.addTaskForm input, .addProjectForm input {
     border: none;
+}
+
+.addProject {
+    opacity: 0.6;
+    transition: 0.3s;
+    width: 100%;
 }
 
 .modal {

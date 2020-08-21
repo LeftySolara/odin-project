@@ -10,6 +10,7 @@ let TaskView = (function() {
     "use strict"
 
     let _addTaskForm = getElement("#addTaskForm");
+    let _addProjectForm = getElement("#addProjectForm");
     let taskTitleBuffer;
     let deleteIcon = "../node_modules/tabler-icons/icons/trash.svg";
     let detailsIcon = "../node_modules/tabler-icons/icons/edit.svg";
@@ -67,6 +68,18 @@ let TaskView = (function() {
     }
 
     /**
+     * Creates the "New Project" option that appears in the sidebar.
+     */
+    function _createAddProjectRow() {
+        const item = createElement("li", "project");
+        item.textContent = "New Project"
+        item.classList.add("addProject");
+        item.addEventListener("click", _displayAddProjectForm);
+
+        return item;
+    }
+
+    /**
      * Replaces the "Add task" list item with the "Add task" form.
      */
     function _displayAddTaskForm() {
@@ -77,11 +90,25 @@ let TaskView = (function() {
     }
 
     /**
+     * Replaces the "New Project" option display with a form.
+     */
+    function _displayAddProjectForm() {
+        const projectList = getElement("#projectList");
+
+        this.remove();
+        projectList.append(_addProjectForm);
+    }
+
+    /**
      * Initializes DOM elements in the view.
      */
     function initializeView() {
         let taskList = getElement("#taskList");
         taskList.append(_createAddTaskRow());
+
+        const projectList = getElement("#projectList");
+        projectList.append(_createAddProjectRow());
+
         _initLocalListeners();
     }
 
@@ -142,6 +169,30 @@ let TaskView = (function() {
         }
 
         taskList.append(_createAddTaskRow());
+    }
+
+    function displayProjects(projects) {
+        const projectList = getElement("#projectList");
+        while (projectList.firstChild) {
+            projectList.removeChild(projectList.lastChild);
+        }
+
+        if (projects.length === 0) {
+            const msg = createElement("p");
+            msg.textContent = "There are currently no projects.";
+            projectList.append(msg);
+        }
+        else {
+            projects.forEach(project => {
+                const li = createElement("li", "project");
+                li.id = project.id;
+                li.textContent = project.name;
+
+                projectList.append(li);
+            });
+        }
+
+        projectList.append(_createAddProjectRow());
     }
 
     /**
@@ -234,6 +285,26 @@ let TaskView = (function() {
     }
 
     /**
+     * Sets up the event listener that fires when a project is added.
+     * 
+     * The provided callback function is responsible for passing the
+     * name of a new project to the controller.
+     * 
+     * @param {function} handler - Callback function that executes when a project is created.
+     */
+    function bindAddProject(handler) {
+        _addProjectForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const name = _addProjectForm.elements["name"].value;
+            handler(name);
+
+            _addProjectForm.remove();
+            _addProjectForm.reset();
+        });
+    }
+
+    /**
      * Sets up the event listener that fires when a task is modified.
      * 
      * The provided callback function is responsible for passing the
@@ -306,10 +377,12 @@ let TaskView = (function() {
     return {
         initializeView,
         displayTasks,
+        displayProjects,
         showTaskDetails,
         createElement,
         getElement,
         bindAddTask,
+        bindAddProject,
         bindEditTask,
         bindDeleteTask,
         bindToggleTask,
