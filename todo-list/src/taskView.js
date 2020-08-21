@@ -34,6 +34,18 @@ let TaskView = (function() {
                 a.remove();
             });
         });
+
+        /* Selection of projects in the sidebar. */
+        const projectList = getElement("#projectList");
+        projectList.addEventListener("click", event => {
+            if (event.target.className === "project") {
+                const projects = document.querySelectorAll(".project");
+                for (let i = 0; i < projects.length; ++i) {
+                    projects[i].classList.remove("active");
+                }
+                event.target.classList.add("active");
+            }
+        });
     }
 
     /**

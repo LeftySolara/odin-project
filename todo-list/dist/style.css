@@ -71,6 +71,10 @@ h1 {
     font-family: var(--header-font);
 }
 
+.sidebar .active {
+    background-color: var(--main-background-color);
+}
+
 .project {
     padding-bottom: 5px;
 }
