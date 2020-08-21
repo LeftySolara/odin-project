@@ -14,6 +14,10 @@ let TaskModel = (function() {
     let _onTaskListChanged = function() {};
     let _onProjectListChanged = function() {};
 
+    if (projects.length === 0) {
+        addProject("Default");
+    }
+
     /**
      * Saves the list of tasks to localStorage.
      */
