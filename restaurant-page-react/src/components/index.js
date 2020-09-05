@@ -12,14 +12,24 @@ function Header(props) {
   return <h1 id="header">{text}</h1>;
 }
 
-function HomePage() {
-  return (
-    <div>
-      <Header text="Julianne's Breakfast Cafe" />
-      <TabBar />
-      <InfoTab />
-    </div>
-  );
+class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentTab: <InfoTab />,
+    };
+  }
+
+  render() {
+    const { currentTab } = this.state;
+    return (
+      <div>
+        <Header text="Julianne's Breakfast Cafe" />
+        <TabBar />
+        {currentTab}
+      </div>
+    );
+  }
 }
 
 export default HomePage;
