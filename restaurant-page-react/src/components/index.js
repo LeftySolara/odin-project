@@ -3,6 +3,7 @@ import React from 'react';
 import TabBar from './tabBar';
 import InfoTab from './infoTab';
 import ContactTab from './contactTab';
+import MenuTab from './menuTab';
 
 import '../index.css';
 

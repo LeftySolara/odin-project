@@ -24,6 +24,7 @@ module.exports = {
       'react/forbid-prop-types': [0, { forbid: ['any'] }],
       'react/prop-types': 0,
       'no-plusplus': 'off',
+      'global-require': 0,
     },
     env: {
       jest: true,

@@ -1,0 +1,27 @@
+#menuTab {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 50px;
+    margin-top: 50px;
+}
+
+.menuItem {
+    display: block;
+    margin-bottom: 50px;
+    width: 26%;
+    text-align: center;
+    background-color: var(--transparent-background);
+    border: 0px solid var(--transparent-background);
+    border-radius: 10px;
+    box-shadow: var(--background-shadow);
+}
+
+.menuItem img {
+    max-width: 100%;
+    object-fit: fill;
+    vertical-align: top;
+}
