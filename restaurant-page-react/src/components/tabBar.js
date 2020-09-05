@@ -7,7 +7,12 @@ function TabButton(props) {
 
   return (
     <div className="tabButton">
-      <input type="radio" name="tabBar" value={text.toLowerCase()} />
+      <input
+        id={text.toLowerCase()}
+        type="radio"
+        name="tabBar"
+        value={text.toLowerCase()}
+      />
       <label htmlFor={text.toLowerCase()}>{text}</label>
     </div>
   );
