@@ -18,6 +18,17 @@ class HomePage extends React.Component {
     this.state = {
       currentTab: <InfoTab />,
     };
+    this.navigate = this.navigate.bind(this);
+  }
+
+  navigate(tabName) {
+    if (tabName === 'home') {
+      this.setState({ currentTab: <InfoTab /> });
+    } else if (tabName === 'menu') {
+      this.setState({ currentTab: <MenuTab /> });
+    } else if (tabName === 'contact') {
+      this.setState({ currentTab: <ContactTab /> });
+    }
   }
 
   render() {
@@ -25,7 +36,7 @@ class HomePage extends React.Component {
     return (
       <div>
         <Header text="Julianne's Breakfast Cafe" />
-        <TabBar />
+        <TabBar navigate={this.navigate} />
         {currentTab}
       </div>
     );
