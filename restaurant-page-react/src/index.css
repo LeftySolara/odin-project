@@ -24,36 +24,6 @@ body {
     color: var(--main-fg-color);
 }
 
-#tabBar {
-    display:flex;
-    justify-content: center;
-}
-
-.tabButton input[type="radio"] {
-    opacity: 0;
-    position: fixed;
-    width: 0;
-}
-
-.tabButton label {
-    display: inline-block;
-    padding: 10px 20px;
-    color: var(--main-fg-color);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 2.5em;
-    font-style: italic;
-    text-decoration: none;
-}
-
-.tabButton input[type="radio"]:checked + label {
-    border-bottom: 2px solid var(--main-fg-color);
-}
-
-.tabButton label:hover {
-    color: var(--main-bg-color);
-}
-
 .tabContent {
     width: 60%;
     margin: 0 auto;
@@ -63,33 +33,6 @@ body {
     font-size: 2em;
     color: var(--main-bg-color);
     text-align: center;
-}
-
-#menuDisplay {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    width: 100%;
-    padding-top: 50px;
-}
-
-.menuItem {
-    display: block;
-    margin-bottom: 50px;
-    width: 26%;
-    text-align: center;
-    background-color: var(--transparent-background);
-    border: 0px solid var(--transparent-background);
-    border-radius: 10px;
-    box-shadow: var(--background-shadow);
-}
-
-.menuItem img {
-    max-width: 100%;
-    object-fit: fill;
-    vertical-align: top;
 }
 
 .overlay {
