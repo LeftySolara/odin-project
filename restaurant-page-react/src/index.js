@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 function Header(props) {
   const { text } = props;
-  return <h1>{text}</h1>;
+  return <h1 id="header">{text}</h1>;
 }
 
 function TabButton(props) {
@@ -11,7 +11,7 @@ function TabButton(props) {
   text = String(text);
 
   return (
-    <div>
+    <div className="tabButton">
       <input type="radio" name="tabBar" value={text.toLowerCase()} />
       <label htmlFor={text.toLowerCase()}>{text}</label>
     </div>
@@ -20,7 +20,7 @@ function TabButton(props) {
 
 function TabBar() {
   return (
-    <div>
+    <div id="tabBar">
       <TabButton text="Home" />
       <TabButton text="Menu" />
       <TabButton text="Contact" />
@@ -35,7 +35,7 @@ function RestaurantInfo() {
     'Established in 2020, our cafe strives to provide the best traditional, experimental, and fun options for the most important meal of the day!';
 
   return (
-    <div>
+    <div className="tabContent overlay">
       <p>{paragraph1}</p>
       <p>{paragraph2}</p>
     </div>
